@@ -47,12 +47,24 @@ function CompanyId({ slug }) {
           {/* <div>{slug.general_data.business_hours}</div> is an array to map */}
 
           <div>
-            Contacts {/*  all are arrays to be mapped ! */}
+            Contact Information {/*  all are arrays to be mapped ! */}
             <p>Phones {slug.general_data.contact_info.phones}</p>
             <p>Faxes {slug.general_data.contact_info.faxes}</p>
             <p>Mobile {slug.general_data.contact_info.mobile}</p>
             <p>Email {slug.general_data.contact_info.emails}</p>
             <p>Facebook {slug.general_data.contact_info.facebook} </p>
+          </div>
+          <div>
+            {" "}
+            Location
+            <div>
+              Adress de facto
+              <p>{slug.general_data.contact_info.address_de_facto.title}</p>
+            </div>
+            <div>
+              Adress de jur{" "}
+              <p>{slug.general_data.contact_info.address_de_jur.title}</p>
+            </div>
           </div>
           <div>Partners {slug.personal.PRT.length}</div>
           <div>Administrators {slug.personal.ADM.length}</div>
@@ -90,13 +102,6 @@ function CompanyId({ slug }) {
           </div>
           {/* <div>{slug.general_data.similar_companies}</div> is an array to map */}
         </div>
-        {/*<div>
-          Contacts
-          <div>Phone mobile {mobile}</div>
-          <div>Phone {phone} </div>
-          <div>Email {email} </div>
-          <div>Website {website} </div>
-        </div>*/}
       </div>
       {/* <p>Founders of the company: {[...partners]}</p> */}
     </div>
