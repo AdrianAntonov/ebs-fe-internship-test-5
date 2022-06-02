@@ -34,7 +34,7 @@ function CompaniesListItem({ information }) {
     //   <p>{creation_date}</p>
     // </div>
     <>
-      <div style={{ marginLeft: "10rem" }}>
+      <div>
         <span>{id}</span> {/* <Link href={`/${id}`}> */}
         <span onClick={handleClick}>{name}</span>
         {/* </Link> */}

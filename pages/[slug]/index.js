@@ -1,32 +1,17 @@
 import { useRouter } from "next/router";
 import axios from "axios";
 
+axios.defaults.baseURL = "https://app.informer.md/api/public";
+
 function CompanyId({ slug }) {
-  const router = useRouter();
+  // const router = useRouter();
 
-  const {
-    id,
-    name,
-    idno,
-    website,
-    email,
-    creation_date,
-    status,
-    turnover,
-    partners,
-    mobile,
-    phone,
-    industry,
-    employees,
-  } = slug;
-
-  // const companyId = router.query.companyId;
-  console.log(slug);
+  const { id, name, status } = slug;
 
   return (
     <div>
-      Details
-      <div style={{ marginLeft: "10rem" }}>
+      {/* Details */}
+      <div>
         <span>{id}</span> {/*must */}
         <span>{name}</span>
         {/*must */}
@@ -66,24 +51,24 @@ function CompanyId({ slug }) {
               <p>{slug.general_data.contact_info.address_de_jur.title}</p>
             </div>
           </div>
-          <div>Partners {slug.personal.PRT.length}</div>
-          <div>Administrators {slug.personal.ADM.length}</div>
+          <div>Partners {slug.personal.PRT?.length}</div>
+          <div>Administrators {slug.personal?.ADM?.length}</div>
           <div>
             {/* must map arrays of ADM & PRT */}
             Parteners
-            <p>Name and Surname: {slug.personal.PRT[0].name}</p>
-            <p>Seniority: {slug.personal.PRT[0].seniority.title}</p>{" "}
-            <p>Job Function: {slug.personal.PRT[0].seniority.function}</p>{" "}
-            <p>Phone: {slug.personal.PRT[0].seniority.phone}</p>{" "}
-            <p>Email: {slug.personal.PRT[0].seniority.email}</p>{" "}
+            <p>Name and Surname: {slug.personal?.PRT?.[0]?.name}</p>
+            <p>Seniority: {slug.personal?.PRT?.[0].seniority?.title}</p>{" "}
+            <p>Job Function: {slug.personal?.PRT?.[0].seniority?.function}</p>{" "}
+            <p>Phone: {slug.personal?.PRT?.[0].seniority?.phone}</p>{" "}
+            <p>Email: {slug.personal?.PRT?.[0].seniority?.email}</p>{" "}
           </div>
           <div>
             Administrators
-            <p>Name and Surname: {slug.personal.ADM[0].name}</p>
-            <p>Seniority: {slug.personal.ADM[0].seniority.title}</p>{" "}
-            <p>Job Function: {slug.personal.ADM[0].seniority.function}</p>{" "}
-            <p>Phone: {slug.personal.ADM[0].seniority.phone}</p>{" "}
-            <p>Email: {slug.personal.ADM[0].seniority.email}</p>{" "}
+            <p>Name and Surname: {slug.personal?.ADM?.[0]?.name}</p>
+            <p>Seniority: {slug.personal?.ADM?.[0].seniority?.title}</p>{" "}
+            <p>Job Function: {slug.personal?.ADM?.[0].seniority?.function}</p>{" "}
+            <p>Phone: {slug.personal?.ADM?.[0].seniority?.phone}</p>{" "}
+            <p>Email: {slug.personal?.ADM?.[0].seniority?.email}</p>{" "}
           </div>
           <div>
             Turnover {slug.general_data.turnover.last}
@@ -92,11 +77,11 @@ function CompanyId({ slug }) {
           <div>
             <p>
               Type of social capital{" "}
-              {slug.general_data.social_capital.type.title}
+              {slug.general_data?.social_capital?.type?.title}
             </p>
             <p>
               Country of Origin of Investments:{" "}
-              {slug.general_data.social_capital.countries[0].title}
+              {slug.general_data.social_capital.countries[0]?.title}
             </p>
             {/* must map array of countries */}
           </div>
@@ -110,30 +95,11 @@ function CompanyId({ slug }) {
 
 export default CompanyId;
 
-export async function getStaticPaths() {
-  return {
-    fallback: false,
-    paths: [
-      { params: { slug: "fractia-unica-srl" } },
-      { params: { slug: "srl-unicat-lux" } },
-      { params: { slug: "sc-unicalianord-srl" } },
-      { params: { slug: "transgrain-group-srl" } },
-    ],
-  };
-}
-
-export const getStaticProps = async (context) => {
-  const { params } = context;
-
-  // console.log(params);
-
+CompanyId.getInitialProps = async ({ query }) => {
   const result = await axios.get(
-    `https://app.informer.md/api/public/company?slug=transgrain-group-srl`
+    `https://app.informer.md/api/public/company?slug=${query.slug}`
   );
-  console.log(result);
   return {
-    props: {
-      slug: result.data,
-    },
+    slug: result.data,
   };
 };
