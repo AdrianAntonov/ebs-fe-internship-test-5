@@ -17,7 +17,7 @@ import { createContext } from "react";
 // const initialState =
 
 const appContext = createContext({
-  name: "trans",
+  name: "",
   setName: () => null,
 });
 

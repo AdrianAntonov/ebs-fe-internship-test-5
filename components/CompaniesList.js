@@ -1,7 +1,6 @@
 import CompaniesListItem from "./CompaniesListItem";
 
 export default function CompaniesList({ companies }) {
-  // console.log(companies);
   return (
     <div>
       {companies?.data?.data?.length > 0 &&

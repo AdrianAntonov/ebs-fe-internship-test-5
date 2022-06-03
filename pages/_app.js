@@ -1,12 +1,13 @@
 // import AppProvider from "./../context/AppProvider";
+import AppProvider from "./../context/AppProvider";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* <AppProvider> */}
-      <Component {...pageProps} />
-      {/* </AppProvider> */}
+      <AppProvider>
+        <Component {...pageProps} />
+      </AppProvider>
     </>
   );
 }

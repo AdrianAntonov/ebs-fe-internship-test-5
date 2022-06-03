@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import appContext from "./app-context";
 
 function AppProvider({ children }) {
-  const [name, setName] = useState("unica");
+  const [name, setName] = useState("");
 
   return (
     <div>
-      <appContext.AppProvider value={{ name, setName }}>
+      <appContext.Provider value={{ name, setName }}>
         <div>{children}</div>
-      </appContext.AppProvider>
+      </appContext.Provider>
     </div>
   );
 }
