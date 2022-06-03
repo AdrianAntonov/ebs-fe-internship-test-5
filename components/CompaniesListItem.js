@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { Box } from "@mui/material";
 
 function CompaniesListItem({ information }) {
   const {
@@ -22,44 +22,37 @@ function CompaniesListItem({ information }) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/${slug}`);
+    router.push(`/companies/${slug}`);
   };
 
   return (
-    // <div key={id}>
-    //   <p>{id}</p>
-    //   <p>{name}</p>
-    //   <p>{idno}</p>
-    //   <p>{website}</p>
-    //   <p>{creation_date}</p>
-    // </div>
     <>
-      <div style={{ marginLeft: "10rem" }}>
+      <div>
         <span>{id}</span> {/* <Link href={`/${id}`}> */}
         <span onClick={handleClick}>{name}</span>
         {/* </Link> */}
       </div>
       <br />
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <div>
+      <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={6}>
+        <Box gridColumn="span 4" spacing={8}>
           <div>IDNO {idno} </div>
           <div>Status {status} </div>
           <div>Date of establishment {creation_date}</div>
           <div>Virsta</div>
-        </div>
-        <div>
+        </Box>
+        <Box gridColumn="span 4">
           <div>Nr. by the employees {employees} </div>
           <div>Turnover {turnover} </div>
           <div>Industry {industry} </div>
-        </div>
-        <div>
+        </Box>
+        <Box gridColumn="span 4">
           Contacts
           <div>Phone mobile {mobile}</div>
           <div>Phone {phone} </div>
           <div>Email {email} </div>
           <div>Website {website} </div>
-        </div>
-      </div>
+        </Box>
+      </Box>
       {partners.length > 0 && <p>Founders of the company: {[...partners]}</p>}
     </>
   );
