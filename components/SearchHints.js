@@ -1,39 +1,48 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import debounce from "lodash/debounce";
 import { TextField, Button } from "@mui/material";
+import { useRouter } from "next/router";
 import axios from "axios";
 import CompaniesLink from "./CompaniesLink";
-import { useRouter } from "next/router";
+import { useDebounceValue } from "./../hooks/useDebounceValue";
+import { WindowSharp } from "@mui/icons-material";
 
-function SearchHints({ totalResults, clear }) {
+function SearchHints({ totalResults }) {
   const [companies, setCompanies] = useState("");
   const [name, setName] = useState("");
   const ref = useRef(false);
   const router = useRouter();
 
+  const debouncedQuery = useDebounceValue(name, 400);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     router.push(`/companies?search=${name}`);
   };
 
+  /////// cand se va reincarca pagina va seta campul TextField fara caractere
   useEffect(() => {
     setName("");
   }, [setName]);
+  ///////////////////////////////////////////////////
 
   useEffect(() => {
-    if (name === "") {
+    if (debouncedQuery === "" || debouncedQuery === " ") {
       ref.current = false;
       return;
-    } else {
-      ref.current = true;
     }
 
     const fetchCompanies = async () => {
-      const data = await axios.get(`/search?page=1&company_name=${name}`);
+      const data = await axios.get(
+        `/search?page=1&company_name=${debouncedQuery}`
+      );
       setCompanies(data);
+      ref.current = true;
     };
 
     fetchCompanies();
-  }, [name]);
+  }, [debouncedQuery]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -41,7 +50,7 @@ function SearchHints({ totalResults, clear }) {
   };
 
   return (
-    <div>
+    <div onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>
       <TextField
         sx={{
           width: "40rem",
@@ -53,7 +62,7 @@ function SearchHints({ totalResults, clear }) {
         placeholder={`Search from ${totalResults} companies`}
         value={name}
         onChange={handleChange}
-      />{" "}
+      />
       <Button
         size="small"
         sx={{ pb: 2, pt: 2, maxHeight: 55 }}

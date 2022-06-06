@@ -1,10 +1,16 @@
-import { Container, Button } from "@mui/material";
+import { GetStaticProps } from "next";
+import { Container } from "@mui/material";
 import axios from "axios";
 import SearchHints from "../components/SearchHints";
 
 axios.defaults.baseURL = "https://app.informer.md/api/public";
 
-export default function Home({ companies }) {
+interface iHomeProps {
+  companies: number;
+}
+
+const Home = ({ companies }: iHomeProps) => {
+  // console.log(companies);
   return (
     <Container>
       <h1>
@@ -16,11 +22,11 @@ export default function Home({ companies }) {
       </div>
     </Container>
   );
-}
-
+};
+export default Home;
 ///////////////////    HOW GET name FROM name state???     ////////////////////
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await axios.get(`/search?page=1&per_page=5&company_name= `);
   return {
     props: {

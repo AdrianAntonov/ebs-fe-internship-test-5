@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Pagination, Stack } from "@mui/material";
-import CompaniesList from "./../../components/CompaniesList";
+import CompaniesList from "../../components/CompaniesList";
 import axios from "axios";
 import { useRouter } from "next/router";
 
@@ -14,7 +14,7 @@ function Companies() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const getCompanies = async (num) => {
+  const getCompanies = async (num: number) => {
     const data = await axios.get(
       `/search?page=${page}&company_name=${router.query.search}`
     );
