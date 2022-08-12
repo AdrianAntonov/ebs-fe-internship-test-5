@@ -1,16 +1,13 @@
-import { useState, useEffect, useRef, useMemo } from "react";
-import debounce from "lodash/debounce";
-import { TextField, Button } from "@mui/material";
-import { useRouter } from "next/router";
-import axios from "axios";
-import CompaniesLink from "./CompaniesLink";
-import { useDebounceValue } from "./../hooks/useDebounceValue";
-import { WindowSharp } from "@mui/icons-material";
+import { useState, useEffect } from 'react';
+import { TextField, Button } from '@mui/material';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import CompaniesLink from './CompaniesLink';
+import { useDebounceValue } from './../hooks/useDebounceValue';
 
 function SearchHints({ totalResults }) {
-  const [companies, setCompanies] = useState("");
-  const [name, setName] = useState("");
-  const ref = useRef(false);
+  const [companies, setCompanies] = useState('');
+  const [name, setName] = useState('');
   const router = useRouter();
 
   const debouncedQuery = useDebounceValue(name, 400);
@@ -23,13 +20,12 @@ function SearchHints({ totalResults }) {
 
   /////// cand se va reincarca pagina va seta campul TextField fara caractere
   useEffect(() => {
-    setName("");
+    setName('');
   }, [setName]);
   ///////////////////////////////////////////////////
 
   useEffect(() => {
-    if (debouncedQuery === "" || debouncedQuery === " ") {
-      ref.current = false;
+    if (debouncedQuery === '' || debouncedQuery === ' ') {
       return;
     }
 
@@ -38,7 +34,6 @@ function SearchHints({ totalResults }) {
         `/search?page=1&company_name=${debouncedQuery}`
       );
       setCompanies(data);
-      ref.current = true;
     };
 
     fetchCompanies();
@@ -50,10 +45,10 @@ function SearchHints({ totalResults }) {
   };
 
   return (
-    <div onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}>
+    <div onKeyDown={(e) => e.key === 'Enter' && handleSubmit(e)}>
       <TextField
         sx={{
-          width: "40rem",
+          width: '40rem',
           mr: 2,
           // [`& fieldset`]: {
           //   borderRadius: 20,
@@ -65,13 +60,17 @@ function SearchHints({ totalResults }) {
       />
       <Button
         size="small"
-        sx={{ pb: 2, pt: 2, maxHeight: 55 }}
+        sx={{
+          pb: 2,
+          pt: 2,
+          maxHeight: 55,
+        }}
         variant="contained"
         onClick={handleSubmit}
       >
         Search
       </Button>
-      {ref.current &&
+      {debouncedQuery &&
         companies?.data?.data
           .slice(0, 5)
           .map((i) => <CompaniesLink key={i.id} props={i} />)}
