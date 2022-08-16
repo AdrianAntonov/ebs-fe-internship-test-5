@@ -1,5 +1,4 @@
-// import Link from "next/link";
-import { Link } from "@mui/material";
+import { Link } from '@mui/material';
 
 type TProps = {
   creation_date: string;

@@ -1,7 +1,7 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import CompanyTableData from '../CompanyTableData';
-import styles from '../styles/Home.module.css';
+import styles from '../../styles/Home.module.css';
 
 function AdminsTable({ people }) {
   // people.personal.ADM.map((i) => console.log(i));

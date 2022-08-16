@@ -33,11 +33,8 @@ function CompaniesListItem({ information }) {
         marginBottom: '1rem',
         backgroundColor: '#f9f9f9',
         border: '1px solid hsla(0, 0%, 82%, 0.1)',
-        // width: '90%',
-        // margin: 'auto',
       }}
     >
-      {/* <Paper elevation={3}> */}
       <CardContent>
         <div>
           <div>
@@ -46,8 +43,6 @@ function CompaniesListItem({ information }) {
               {name}
             </span>
           </div>
-          {/* <Card sx={{ maxWidth: "80rem" }}> */}
-          {/* <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={4}> */}
           <Box
             display="flex"
             sx={{
@@ -119,10 +114,8 @@ function CompaniesListItem({ information }) {
               </p>
             )}
           </Box>
-          {/* </Card> */}
         </div>
       </CardContent>
-      {/* </Paper> */}
     </Card>
   );
 }

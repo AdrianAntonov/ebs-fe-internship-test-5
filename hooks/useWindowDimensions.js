@@ -8,7 +8,7 @@ function getWindowDimensions() {
       height,
     };
   }
-  return [500, 500];
+  return { width: 500, height: 500 };
 }
 
 export default function useWindowDimensions() {

@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css';
+import styles from '../../styles/Home.module.css';
 
 function PartnersBlocks({ people }) {
   const partners = people?.personal?.PRT?.map((item) => (
