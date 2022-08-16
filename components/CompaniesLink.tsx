@@ -25,7 +25,6 @@ interface iCompaniesLinkProps {
 }
 
 const CompaniesLink = ({ props }: iCompaniesLinkProps) => {
-  // console.log(props);
   const { idno, slug, name } = props;
 
   return (

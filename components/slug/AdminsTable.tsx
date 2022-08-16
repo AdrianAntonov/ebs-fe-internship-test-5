@@ -4,9 +4,6 @@ import CompanyTableData from '../CompanyTableData';
 import styles from '../../styles/Home.module.css';
 
 function AdminsTable({ people }) {
-  // people.personal.ADM.map((i) => console.log(i));
-  // console.log(people.personal.PRT);
-
   const administrators = people?.personal?.ADM?.map((item, idx) => (
     <TableRow className={styles.dayRow} key={item.id}>
       <TableCell className={styles.firstCell}>

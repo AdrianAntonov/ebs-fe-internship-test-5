@@ -14,8 +14,6 @@ import styles from '../../../styles/Home.module.css';
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 function CompanyId({ slug }) {
-  console.log(slug.general_data.turnover);
-
   return (
     <div className={styles.wrapper}>
       <CompanyHeader prop={slug} />

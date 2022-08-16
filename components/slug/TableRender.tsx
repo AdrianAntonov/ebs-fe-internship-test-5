@@ -6,7 +6,6 @@ import AdminsTable from './AdminsTable';
 
 function TableRender({ slug }) {
   const { width } = useWindowDimensions();
-  // console.log(typeof width);
 
   return (
     <div>

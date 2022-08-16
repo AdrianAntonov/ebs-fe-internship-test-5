@@ -25,20 +25,22 @@ function CompanyTurnover({ slug }) {
           <div className={styles.ContactsInfoHead}>Turnover</div>
           <div className={styles.turnoverLast}>{sum} MDL</div>
           <div className={styles.ContactsInfoContent}>
-            <LineChart
-              width={1220}
-              height={400}
-              data={slug.general_data.turnover.graph}
-              margin={{ top: 25, right: 30, left: 20, bottom: 5 }}
-            >
-              <CartesianGrid />
-              <XAxis dataKey="year" />
-              <YAxis dataKey="turnover" />
-              <Tooltip />
-              <Legend />
-              <Line type="monotone" dataKey="year" stroke="#8884d8" />
-              <Line type="monotone" dataKey="turnover" stroke="#82ca9d" />
-            </LineChart>
+            {sum !== '0' ? (
+              <LineChart
+                width={1220}
+                height={400}
+                data={slug.general_data.turnover.graph}
+                margin={{ top: 25, right: 30, left: 20, bottom: 5 }}
+              >
+                <CartesianGrid />
+                <XAxis dataKey="year" />
+                <YAxis dataKey="turnover" />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="year" stroke="#8884d8" />
+                <Line type="monotone" dataKey="turnover" stroke="#82ca9d" />
+              </LineChart>
+            ) : null}
           </div>
         </div>
       </div>

@@ -1,19 +1,26 @@
 import styles from '../../styles/Home.module.css';
+import NoData from './NoData';
 
 function PreviousInfo({ slug }) {
   return (
     <div className={styles.slugPreviousInfo}>
       <div className={styles.slugPreviousInfoItem}>
         <div>IDNO</div>
-        <div className={styles.itemInfo}>{slug.general_data.idno}</div>
+        <div className={styles.itemInfo}>
+          {slug.general_data.idno || <NoData />}
+        </div>
       </div>
       <div className={styles.slugPreviousInfoItem}>
         <div>Date of establishment</div>
-        <div className={styles.itemInfo}>{slug.general_data.creation_date}</div>
+        <div className={styles.itemInfo}>
+          {slug.general_data.creation_date || <NoData />}
+        </div>
       </div>
       <div className={styles.slugPreviousInfoItem}>
         <div>Staff</div>
-        <div className={styles.itemInfo}>{slug.general_data.size.name}</div>
+        <div className={styles.itemInfo}>
+          {slug.general_data.size.name || <NoData />}
+        </div>
       </div>
     </div>
   );

@@ -1,23 +1,22 @@
-import { GetStaticProps } from "next";
-import { Container } from "@mui/material";
-import axios from "axios";
-import SearchHints from "../components/SearchHints";
+import { GetStaticProps } from 'next';
+import { Container } from '@mui/material';
+import axios from 'axios';
+import SearchHints from '../components/SearchHints';
 
-axios.defaults.baseURL = "https://app.informer.md/api/public";
+axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 interface iHomeProps {
   companies: number;
 }
 
 const Home = ({ companies }: iHomeProps) => {
-  // console.log(companies);
   return (
     <Container>
       <h1>
         We help Republic of Moldova&#39;s companies upscale their business and
         minimize potential risks.
       </h1>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: 'flex' }}>
         <SearchHints totalResults={companies.toLocaleString()} />
       </div>
     </Container>

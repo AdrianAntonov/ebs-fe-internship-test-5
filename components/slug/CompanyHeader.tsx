@@ -11,8 +11,6 @@ interface ICompanyHeaderProps {
 }
 
 function CompanyHeader({ prop: { id, name, status } }: ICompanyHeaderProps) {
-  // console.log(status);
-
   return (
     <div className={styles.slugHeaderContainer}>
       <div className={styles.slugHeader}>

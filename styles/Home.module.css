@@ -213,7 +213,7 @@
 
 .slugPreviousInfo {
   display: flex;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
   background-color: #ffffff;
@@ -270,6 +270,7 @@
 .ContactsInfoWrapper {
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 350px) {
@@ -285,7 +286,7 @@
   background-color: #ffffff;
   width: 100%;
   box-shadow: 0 0.4375rem 1.6875rem 0.1875rem rgba(31, 105, 179, 0.05);
-  margin-bottom: 1.2rem;
+  /* margin-bottom: 1rem; */
 }
 .ContactsInfo:not(:last-child) {
   margin-right: 0.65rem;
@@ -354,18 +355,18 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
   box-shadow: 0 0.4375rem 1.6875rem 0.1875rem rgba(31, 105, 179, 0.05);
 }
 
 .partnerBlock {
-  margin: 2rem 0;
+  margin: 1rem 0;
   background-color: #ffffff;
   box-shadow: 0 0.4375rem 1.6875rem 0.1875rem rgba(31, 105, 179, 0.05);
 }
 
 .turnoverContainer {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .turnoverLast {
@@ -373,4 +374,12 @@
   padding: 1rem 0 1rem 1rem;
   font-weight: 700;
   color: #2083be;
+}
+
+.NoData {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1.5;
+  font-size: 1.5rem;
+  color: #c3c3c3;
 }

@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { Pagination, Stack, Container } from "@mui/material";
-import CompaniesList from "../../components/CompaniesList";
-import axios from "axios";
-import { useRouter } from "next/router";
-import styles from "../../styles/Home.module.css";
+import { useState, useEffect } from 'react';
+import { Pagination, Stack, Container } from '@mui/material';
+import CompaniesList from '../../components/CompaniesList';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import styles from '../../styles/Home.module.css';
 
-axios.defaults.baseURL = "https://app.informer.md/api/public";
+axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 interface ICompanies {
   total_results: number;
@@ -14,15 +14,13 @@ interface ICompanies {
 
 function Companies() {
   const router = useRouter();
-  console.log(router);
 
   const [allCompanies, setAllCompanies] = useState<ICompanies>();
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  console.log(allCompanies);
 
   useEffect(() => {
-    if (router.query.search === "") {
+    if (router.query.search === '') {
       return;
     }
     const fetchCompanies = async () => {
@@ -49,12 +47,12 @@ function Companies() {
     // router.push(`/companies?search=${router.query.search}&page=${page}`);
   };
 
-  if (allCompanies?.total_results === 0 || router.query.search === "") {
+  if (allCompanies?.total_results === 0 || router.query.search === '') {
     return <h2>Sorry, no results</h2>;
   }
 
   return (
-    <Container maxWidth={false} sx={{ minWidth: "1450px" }}>
+    <Container maxWidth={false} sx={{ minWidth: '1450px' }}>
       <h2>Companies</h2>
       <Stack spacing={2}>
         <CompaniesList companies={allCompanies} />

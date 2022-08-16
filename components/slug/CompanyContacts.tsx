@@ -1,5 +1,6 @@
 import styles from '../../styles/Home.module.css';
 import CompanyContactInfo from './CompanyContactInfo';
+import NoData from './NoData';
 
 function CompanyContacts({ slug }) {
   return (
@@ -15,11 +16,17 @@ function CompanyContacts({ slug }) {
         <div className={styles.ContactsInfoHead}>Location</div>
         <div className={styles.adresses}>
           <p>Adress de facto:</p>
-          <p>{slug.general_data.contact_info.address_de_facto.title}</p>
+          <p>
+            {slug.general_data.contact_info.address_de_facto.title || (
+              <NoData />
+            )}
+          </p>
         </div>
         <div className={styles.adresses}>
           <p>Adress de jur:</p>
-          <p>{slug.general_data.contact_info.address_de_jur.title}</p>
+          <p>
+            {slug.general_data.contact_info.address_de_jur.title || <NoData />}
+          </p>
         </div>
       </div>
     </div>

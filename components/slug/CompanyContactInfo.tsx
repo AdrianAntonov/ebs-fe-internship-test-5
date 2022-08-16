@@ -1,8 +1,6 @@
 import styles from '../../styles/Home.module.css';
 
 function CompanyContactInfo({ contacts }) {
-  // console.log(contacts);
-
   const phones = contacts.phones.map((phone, idx) => (
     <span key={idx}>{phone}</span>
   ));
