@@ -320,12 +320,15 @@
   gap: 10px;
   flex-wrap: wrap;
   font-size: 16px;
+  color: #a3a3a3;
 }
-
+.facebookItem:hover {
+  color: #096dd9;
+}
 .adresses {
   padding-left: 1rem;
 }
-.adresses p:not(:first-child) {
+.adresses div {
   margin-top: -10px;
 }
 

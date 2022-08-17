@@ -1,7 +1,8 @@
 import styles from '../../styles/Home.module.css';
-import NoData from './NoData';
+import { NoData } from './NoData';
+import { previousInfo } from '../../types/previousData';
 
-function PreviousInfo({ slug }) {
+function PreviousInfo({ slug }: previousInfo) {
   return (
     <div className={styles.slugPreviousInfo}>
       <div className={styles.slugPreviousInfoItem}>

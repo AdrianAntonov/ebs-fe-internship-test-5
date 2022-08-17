@@ -1,6 +1,7 @@
 import styles from '../../styles/Home.module.css';
+import { contact } from '../../types/contactInfo';
 
-function CompanyContactInfo({ contacts }) {
+function CompanyContactInfo({ contacts }: contact) {
   const phones = contacts.phones.map((phone, idx) => (
     <span key={idx}>{phone}</span>
   ));
@@ -20,14 +21,17 @@ function CompanyContactInfo({ contacts }) {
   ));
 
   return (
-    <div>
-      <div>Phones {phones}</div>
-      <div>Faxes {faxes}</div>
-      <div>Mobile {mobiles}</div>
-      <div>Emails {emails}</div>
-      <div className={styles.facebookWrapper}>
-        Facebook:
-        <div>{sites}</div>
+    <div className={styles.ContactsInfo}>
+      <div className={styles.ContactsInfoHead}>Contact Information</div>
+      <div className={styles.ContactsInfoContent}>
+        <div>Phones {phones}</div>
+        <div>Faxes {faxes}</div>
+        <div>Mobile {mobiles}</div>
+        <div>Emails {emails}</div>
+        <div className={styles.facebookWrapper}>
+          Websites:
+          <div>{sites}</div>
+        </div>
       </div>
     </div>
   );

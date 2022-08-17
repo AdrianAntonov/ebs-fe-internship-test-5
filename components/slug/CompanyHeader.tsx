@@ -1,23 +1,14 @@
 import styles from '../../styles/Home.module.css';
+import { headerSlug } from '../../types/header';
 
-type TStatus = {
-  id: number;
-  keyword: string;
-  title: string;
-};
-
-interface ICompanyHeaderProps {
-  prop: { id: number; name: string; status: TStatus };
-}
-
-function CompanyHeader({ prop: { id, name, status } }: ICompanyHeaderProps) {
+function CompanyHeader({ slug }: headerSlug) {
   return (
     <div className={styles.slugHeaderContainer}>
       <div className={styles.slugHeader}>
-        <div className={styles.slugCompanyId}>{id}</div>
+        <div className={styles.slugCompanyId}>{slug.id}</div>
         <div className={styles.slugCompanyName}>
-          {name}
-          <sup className={styles.sup}>{status?.keyword}</sup>
+          {slug.name}
+          <sup className={styles.sup}>{slug.status?.keyword}</sup>
         </div>
       </div>
     </div>

@@ -27,6 +27,7 @@ function Companies() {
       const data = await axios.get(
         `/search?page=${page}&company_name=${router.query.search}`
       );
+      // console.log(data);
       setTotalPages(data.data.pages);
       setAllCompanies(data.data);
       // router.push(

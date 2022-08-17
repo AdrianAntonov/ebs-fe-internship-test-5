@@ -11,13 +11,13 @@ function TableRender({ slug }) {
     <div>
       {width > 710 ? (
         <div>
-          <AdminsTable people={slug} />
-          <PartnersTable people={slug} />
+          <AdminsTable slug={slug} />
+          <PartnersTable slug={slug} />
         </div>
       ) : (
         <div>
-          <AdminsBlocks people={slug} />
-          <PartnersBlocks people={slug} />
+          <AdminsBlocks slug={slug} />
+          <PartnersBlocks slug={slug} />
         </div>
       )}
     </div>

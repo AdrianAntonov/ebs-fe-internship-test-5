@@ -1,19 +1,26 @@
 import styles from '../../styles/Home.module.css';
+import { NoData } from './NoData';
+import { quantity } from '../../types/quantity';
 
-function AdminsBlocks({ people }) {
-  const administrators = people?.personal?.ADM?.map((item) => (
-    <div key={item.id}>
-      <p>Name and Surname: {item.name}</p>
-      <p>
-        Seniority: <b>{item.seniority?.title || '---'}</b>
-      </p>
-      <p>
-        Job function: <b>{item.seniority?.function || '---'}</b>
-      </p>
-      <p>Phone: {item.seniority?.phone || '---'}</p>
-      <p>Email: {item.seniority?.email || '---'}</p>
-    </div>
-  ));
+function AdminsBlocks({ slug }: quantity) {
+  const administrators =
+    slug?.personal?.ADM?.length > 0 ? (
+      slug?.personal?.ADM?.map((item) => (
+        <div key={item.id}>
+          <p>Name and Surname: {item.name}</p>
+          <p>
+            Seniority: <b>{item.seniority?.title || '---'}</b>
+          </p>
+          <p>
+            Job function: <b>{item.function || '---'}</b>
+          </p>
+          <p>Phone: {item.phone || '---'}</p>
+          <p>Email: {item.email || '---'}</p>
+        </div>
+      ))
+    ) : (
+      <NoData />
+    );
 
   return (
     <div className={styles.partnerBlock}>
