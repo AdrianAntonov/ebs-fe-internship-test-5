@@ -9,14 +9,12 @@ import PreviousInfo from '../../../components/slug/PreviousInfo';
 import CompanyInvestCapital from '../../../components/slug/CompanyInvestCapital';
 import SimilarCompanies from '../../../components/slug/SimilarCompanies';
 import CompanyTurnover from '../../../components/slug/CompanyTurnover';
+import { ISlug } from '../../../types/slug';
 import styles from '../../../styles/Home.module.css';
 
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
-function CompanyId({ slug }) {
-  console.log(slug);
-  console.log(new Date());
-
+function CompanyId({ slug }: ISlug) {
   return (
     <div className={styles.wrapper}>
       <CompanyHeader slug={slug} />

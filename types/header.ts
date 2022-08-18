@@ -4,7 +4,7 @@ export interface IHeader {
   status: {
     id: number;
     keyword: string;
-    tite: string;
+    title: string;
   };
 }
 

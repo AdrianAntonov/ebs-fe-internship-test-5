@@ -1,4 +1,4 @@
-export interface IQuantity {
+interface Quantity {
   id: number;
   name: string;
   email: string | null;
@@ -10,11 +10,12 @@ export interface IQuantity {
   };
 }
 
+export interface IQuantity {
+  ADM?: Quantity[];
+  PRT?: Quantity[];
+}
 export interface quantity {
   slug: {
-    personal: {
-      ADM?: IQuantity[];
-      PRT?: IQuantity[];
-    };
+    personal: IQuantity;
   };
 }

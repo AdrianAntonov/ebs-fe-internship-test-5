@@ -6,6 +6,8 @@ export interface IContact {
   sites: string[];
 }
 
+export interface IContactLocation {}
+
 export interface contact {
   contacts: IContact;
 }
