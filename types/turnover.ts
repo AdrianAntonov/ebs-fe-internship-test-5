@@ -7,7 +7,7 @@ export interface ITurnover {
   last: number;
 }
 
-export interface turnover {
+export interface ICompanyTurnover {
   slug: {
     general_data: {
       turnover: ITurnover;

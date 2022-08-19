@@ -5,16 +5,21 @@ import CompanyProfile from '../../../components/slug/CompanyProfile';
 import CompanyContacts from '../../../components/slug/CompanyContacts';
 import QuantityAdminsPartners from '../../../components/slug/QuantityAdminsPartners';
 import TableRender from '../../../components/slug/TableRender';
-import PreviousInfo from '../../../components/slug/PreviousInfo';
+import PreviousInfo from '../../../components/slug/CompanyPreviousInfo';
 import CompanyInvestCapital from '../../../components/slug/CompanyInvestCapital';
 import SimilarCompanies from '../../../components/slug/SimilarCompanies';
 import CompanyTurnover from '../../../components/slug/CompanyTurnover';
 import { ISlug } from '../../../types/slug';
 import styles from '../../../styles/Home.module.css';
+import Loading from '../../../components/Loading';
 
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 function CompanyId({ slug }: ISlug) {
+  if (!slug) {
+    return <Loading />;
+  }
+
   return (
     <div className={styles.wrapper}>
       <CompanyHeader slug={slug} />

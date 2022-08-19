@@ -3,9 +3,9 @@ import TableRow from '@mui/material/TableRow';
 import CompanyTableData from '../CompanyTableData';
 import styles from '../../styles/Home.module.css';
 import { NoDataTable } from './NoData';
-import { similarCompanies } from '../../types/similarCompanies';
+import { ISimilarCompaniesProps } from '../../types/similarCompanies';
 
-function SimilarCompanies({ slug }: similarCompanies) {
+function SimilarCompanies({ slug }: ISimilarCompaniesProps) {
   const companies =
     slug.similar_companies !== null ? (
       slug.similar_companies.map((company) => (

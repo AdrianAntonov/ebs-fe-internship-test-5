@@ -1,8 +1,8 @@
 import styles from '../../styles/Home.module.css';
 import { NoData } from './NoData';
-import { quantity } from '../../types/quantity';
+import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function QuantityAdminsPartners({ slug }: quantity) {
+function QuantityAdminsPartners({ slug }: IAdmPrtQuantity) {
   return (
     <div className={styles.slugPreviousInfo}>
       <div className={styles.slugPreviousInfoItem}>

@@ -2,9 +2,9 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import CompanyTableData from '../CompanyTableData';
 import styles from '../../styles/Home.module.css';
-import { workingHours } from '../../types/businessHours';
+import { IWorkingHours } from '../../types/businessHours';
 
-function CompanyWorkhours({ data }: workingHours) {
+function CompanyWorkhours({ data }: IWorkingHours) {
   // console.log(data);
   const hoursTable =
     data.length > 0 ? (

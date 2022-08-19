@@ -3,9 +3,9 @@ import TableRow from '@mui/material/TableRow';
 import CompanyTableData from '../CompanyTableData';
 import styles from '../../styles/Home.module.css';
 import { NoDataTable } from './NoData';
-import { quantity } from '../../types/quantity';
+import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function AdminsTable({ slug }: quantity) {
+function AdminsTable({ slug }: IAdmPrtQuantity) {
   const administrators =
     slug?.personal?.ADM?.length > 0 ? (
       slug?.personal?.ADM?.map((item, idx) => (

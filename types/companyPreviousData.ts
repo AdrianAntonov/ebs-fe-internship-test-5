@@ -3,7 +3,7 @@ export interface ISize {
   name: string;
 }
 
-export interface previousInfo {
+export interface ICompanyPreviousInfo {
   slug: {
     general_data: {
       idno: string;

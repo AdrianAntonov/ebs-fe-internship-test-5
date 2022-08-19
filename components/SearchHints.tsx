@@ -1,18 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, KeyboardEvent } from 'react';
 import { TextField, Button } from '@mui/material';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import CompaniesLink from './CompaniesLink';
-import { useDebounceValue } from './../hooks/useDebounceValue';
+import { useDebounceValue } from '../hooks/useDebounceValue';
 
-function SearchHints({ totalResults }) {
-  const [companies, setCompanies] = useState('');
+interface ISearchHints {
+  totalResults: string;
+}
+
+function SearchHints({ totalResults }: ISearchHints) {
+  const [companies, setCompanies] = useState(null);
   const [name, setName] = useState('');
   const router = useRouter();
 
   const debouncedQuery = useDebounceValue(name, 400);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (
+    e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>
+  ) => {
     e.preventDefault();
 
     router.push(`/companies?search=${name}`);
@@ -33,7 +39,8 @@ function SearchHints({ totalResults }) {
       const data = await axios.get(
         `/search?page=1&company_name=${debouncedQuery}`
       );
-      setCompanies(data);
+      console.log(data);
+      setCompanies(data.data);
     };
 
     fetchCompanies();
@@ -71,7 +78,7 @@ function SearchHints({ totalResults }) {
         Search
       </Button>
       {debouncedQuery &&
-        companies?.data?.data
+        companies?.data
           .slice(0, 5)
           .map((i) => <CompaniesLink key={i.id} props={i} />)}
     </div>

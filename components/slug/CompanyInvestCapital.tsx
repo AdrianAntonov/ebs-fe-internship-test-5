@@ -1,8 +1,8 @@
 import styles from '../../styles/Home.module.css';
 import { NoData } from './NoData';
-import { investCapital } from '../../types/investcapital';
+import { ICompanyInvestCapital } from '../../types/companyInvestCapital';
 
-function CompanyInvestCapital({ slug }: investCapital) {
+function CompanyInvestCapital({ slug }: ICompanyInvestCapital) {
   const countries =
     slug.general_data.social_capital.countries.length > 0 ? (
       slug.general_data.social_capital.countries.map((country) => (

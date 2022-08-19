@@ -4,6 +4,7 @@ import CompaniesList from '../../components/CompaniesList';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import styles from '../../styles/Home.module.css';
+import Loading from '../../components/Loading';
 
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
@@ -50,6 +51,9 @@ function Companies() {
 
   if (allCompanies?.total_results === 0 || router.query.search === '') {
     return <h2>Sorry, no results</h2>;
+  }
+  if (!allCompanies) {
+    return <Loading />;
   }
 
   return (

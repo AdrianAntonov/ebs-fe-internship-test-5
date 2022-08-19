@@ -3,9 +3,9 @@ import TableRow from '@mui/material/TableRow';
 import CompanyTableData from '../CompanyTableData';
 import styles from '../../styles/Home.module.css';
 import { NoDataTable } from './NoData';
-import { quantity } from '../../types/quantity';
+import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function PartnersTable({ slug }: quantity) {
+function PartnersTable({ slug }: IAdmPrtQuantity) {
   const partners =
     slug?.personal?.PRT?.length > 0 ? (
       slug?.personal?.PRT?.map((item, idx) => (

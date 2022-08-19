@@ -8,7 +8,7 @@ export interface ISimilarCompanies {
   id: number;
 }
 
-export interface similarCompanies {
+export interface ISimilarCompaniesProps {
   slug: {
     similar_companies: ISimilarCompanies[];
   };

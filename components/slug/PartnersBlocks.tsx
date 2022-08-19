@@ -1,8 +1,8 @@
 import styles from '../../styles/Home.module.css';
 import { NoData } from './NoData';
-import { quantity } from '../../types/quantity';
+import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function PartnersBlocks({ slug }: quantity) {
+function PartnersBlocks({ slug }: IAdmPrtQuantity) {
   const partners =
     slug?.personal?.PRT?.length > 0 ? (
       slug?.personal?.PRT?.map((item) => (

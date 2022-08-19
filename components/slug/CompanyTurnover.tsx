@@ -7,11 +7,11 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-import { turnover } from '../../types/turnover';
+import { ICompanyTurnover } from '../../types/turnover';
 
 import styles from '../../styles/Home.module.css';
 
-function CompanyTurnover({ slug }: turnover) {
+function CompanyTurnover({ slug }: ICompanyTurnover) {
   const sum = slug.general_data.turnover.last.toLocaleString();
 
   // const currency = new Intl.NumberFormat('md-MD', {

@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 import { Container } from '@mui/material';
 import axios from 'axios';
 import SearchHints from '../components/SearchHints';
+import Loading from '../components/Loading';
 
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
@@ -10,6 +11,10 @@ interface iHomeProps {
 }
 
 const Home = ({ companies }: iHomeProps) => {
+  if (!companies) {
+    return <Loading />;
+  }
+
   return (
     <Container>
       <h1>

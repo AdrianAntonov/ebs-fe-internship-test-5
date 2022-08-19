@@ -1,8 +1,8 @@
 import styles from '../../styles/Home.module.css';
-import { location } from '../../types/location';
+import { ICompanyLocation } from '../../types/companyLocation';
 import { NoData } from './NoData';
 
-function CompanyLocation({ contacts }: location) {
+function CompanyLocation({ contacts }: ICompanyLocation) {
   return (
     <div className={styles.ContactsInfo}>
       <div className={styles.ContactsInfoHead}>Location</div>

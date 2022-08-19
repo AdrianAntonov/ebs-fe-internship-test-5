@@ -6,6 +6,6 @@ export interface IBusinessHours {
   value: string;
 }
 
-export interface workingHours {
+export interface IWorkingHours {
   data: IBusinessHours[];
 }

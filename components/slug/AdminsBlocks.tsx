@@ -1,8 +1,8 @@
 import styles from '../../styles/Home.module.css';
 import { NoData } from './NoData';
-import { quantity } from '../../types/quantity';
+import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function AdminsBlocks({ slug }: quantity) {
+function AdminsBlocks({ slug }: IAdmPrtQuantity) {
   const administrators =
     slug?.personal?.ADM?.length > 0 ? (
       slug?.personal?.ADM?.map((item) => (

@@ -7,6 +7,6 @@ export interface ILocation {
   address_de_jur: Location;
 }
 
-export interface location {
+export interface ICompanyLocation {
   contacts: ILocation;
 }

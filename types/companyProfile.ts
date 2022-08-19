@@ -4,7 +4,7 @@ export interface IProfile {
   description: string;
   business_hours: IBusinessHours[];
 }
-export interface profile {
+export interface ICompanyProfile {
   slug: {
     general_data: IProfile;
   };

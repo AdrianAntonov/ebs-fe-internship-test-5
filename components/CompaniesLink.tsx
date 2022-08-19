@@ -1,28 +1,5 @@
 import { Link } from '@mui/material';
-
-type TProps = {
-  creation_date: string;
-  creation_year: number;
-  email: boolean;
-  employees: string;
-  full_location: string;
-  id: number;
-  idno: string;
-  industry: string;
-  location: string;
-  mobile: true;
-  name: string;
-  partners: string[];
-  phone: boolean;
-  slug: string;
-  status: string;
-  turnover: null;
-  website: string;
-};
-
-interface iCompaniesLinkProps {
-  props: TProps;
-}
+import { iCompaniesLinkProps } from '../types/companiesLink';
 
 const CompaniesLink = ({ props }: iCompaniesLinkProps) => {
   const { idno, slug, name } = props;

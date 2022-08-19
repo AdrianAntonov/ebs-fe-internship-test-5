@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router';
 import { Card, Box, Paper, CardContent } from '@mui/material';
 import styles from '../styles/Home.module.css';
+import ICompaniesListItem from '../types/companiesListItem';
 
-function CompaniesListItem({ information }) {
+function CompaniesListItem({ information }: ICompaniesListItem) {
   const {
     id,
     name,
@@ -20,6 +21,7 @@ function CompaniesListItem({ information }) {
     employees,
   } = information;
 
+  console.log(information);
   const router = useRouter();
 
   const handleClick = () => {

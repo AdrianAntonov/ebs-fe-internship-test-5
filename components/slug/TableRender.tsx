@@ -3,8 +3,13 @@ import PartnersBlocks from './PartnersBlocks';
 import PartnersTable from './PartnersTable';
 import AdminsBlocks from './AdminsBlocks';
 import AdminsTable from './AdminsTable';
+import { ISlug } from '../../types/slug';
 
-function TableRender({ slug }) {
+interface ITableRender {
+  slug: ISlug;
+}
+
+function TableRender({ slug }: ITableRender) {
   const { width } = useWindowDimensions();
 
   return (

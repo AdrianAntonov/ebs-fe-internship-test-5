@@ -1,8 +1,9 @@
 import styles from '../../styles/Home.module.css';
 import CompanyContactInfo from './CompanyContactInfo';
-import CompanyLocation from './Location';
+import CompanyLocation from './CompanyLocation';
+import { ICompanyContacts } from '../../types/generalContactInfo';
 
-function CompanyContacts({ slug }) {
+function CompanyContacts({ slug }: ICompanyContacts) {
   return (
     <div className={styles.ContactsInfoWrapper}>
       <CompanyContactInfo contacts={slug.general_data.contact_info} />

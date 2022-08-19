@@ -8,7 +8,7 @@ export interface IInvestCapital {
   type: definition;
 }
 
-export interface investCapital {
+export interface ICompanyInvestCapital {
   slug: {
     general_data: {
       social_capital: IInvestCapital;

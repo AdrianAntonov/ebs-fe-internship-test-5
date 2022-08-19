@@ -1,10 +1,10 @@
-import { IInvestCapital } from './investcapital';
+import { IInvestCapital } from './companyInvestCapital';
 import { ITurnover } from './turnover';
-import { ISize } from './previousData';
+import { ISize } from './companyPreviousData';
 import { IBusinessHours } from './businessHours';
-import { IGeneralContactInfo } from './IGeneralContactInfo';
+import { IGeneralContactInfo } from './generalContactInfo';
 import { ISimilarCompanies } from './similarCompanies';
-import { IQuantity } from './quantity';
+import { IPersonalQuantity } from './quantityAdmPrt';
 
 export interface ISlug {
   slug: {
@@ -26,7 +26,7 @@ export interface ISlug {
       social_capital: IInvestCapital;
       turnover: ITurnover;
     };
-    personal: IQuantity;
+    personal: IPersonalQuantity;
     similar_companies: ISimilarCompanies[];
   };
 }

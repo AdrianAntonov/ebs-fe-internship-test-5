@@ -4,12 +4,13 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { ReactNode } from 'react';
 import styles from '../styles/Home.module.css';
 
 interface ICompanyTableDataProps {
-  data: any;
-  title: any;
-  row?: any;
+  data: ReactNode;
+  title: string;
+  row?: ReactNode;
 }
 
 const CompanyTableData: React.FC<ICompanyTableDataProps> = ({

@@ -1,8 +1,8 @@
 import styles from '../../styles/Home.module.css';
 import CompanyWorkhours from './CompanyWorkhours';
-import { profile } from '../../types/profile';
+import { ICompanyProfile } from '../../types/companyProfile';
 
-function CompanyProfile({ slug }: profile) {
+function CompanyProfile({ slug }: ICompanyProfile) {
   return (
     <div className={styles.ContactsInfoWrapper}>
       <div className={styles.ContactsInfo}>
