@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import { useRouteMatch } from 'react-router-dom';
 import SlugContainer from '../../../components/slug/SlugContainer';
 import CompanyHeader from '../../../components/slug/CompanyHeader';
 import CompanyProfile from '../../../components/slug/CompanyProfile';
@@ -16,10 +17,12 @@ import Loading from '../../../components/Loading';
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 function CompanyId({ slug }: ISlug) {
+  // const {url, path} = useRouteMatch();
+  // console.log(url);
+  // console.log(path);
   if (!slug) {
     return <Loading />;
   }
-
   return (
     <div className={styles.wrapper}>
       <CompanyHeader slug={slug} />

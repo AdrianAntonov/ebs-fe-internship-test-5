@@ -392,8 +392,8 @@
   height: 100vh;
   background: linear-gradient(
     to bottom right,
-    rgba(31, 105, 179, 0.051),
-    rgba(31, 105, 179, 0.158)
+    rgba(31, 105, 179, 0.051), 
+    rgba(31, 105, 179, 0.158) #1f69b328
   );
   display: flex;
   align-items: center;

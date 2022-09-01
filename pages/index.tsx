@@ -16,15 +16,13 @@ const Home = ({ companies }: iHomeProps) => {
   }
 
   return (
-    <Container>
-      <h1>
+    <section className="flex-row flex-wrap pt-8 pl-4 space-y-6 sm:space-y-10 sm:w-10/12 sm:mx-auto">
+      <h1 className="sm:text-2xl lg:text-5xl font-bold tracking-wide ">
         We help Republic of Moldova&#39;s companies upscale their business and
         minimize potential risks.
       </h1>
-      <div style={{ display: 'flex' }}>
-        <SearchHints totalResults={companies.toLocaleString()} />
-      </div>
-    </Container>
+      <SearchHints totalResults={companies.toLocaleString()} />
+    </section>
   );
 };
 export default Home;

@@ -52,31 +52,31 @@ function SearchHints({ totalResults }: ISearchHints) {
   };
 
   return (
-    <div onKeyDown={(e) => e.key === 'Enter' && handleSubmit(e)}>
-      <TextField
-        sx={{
-          width: '40rem',
-          mr: 2,
-          // [`& fieldset`]: {
-          //   borderRadius: 20,
-          // },
-        }}
+    <div onKeyDown={(e) => e.key === 'Enter' && handleSubmit(e)} className='flex flex-col sm:flex-row'>
+      <input className='w-[288px] h-10 p-2 bg-[#1f69b30d] border-2 border-gray-300  placeholder:text-[#c3c3c3]  sm:text-[20px] rounded-lg sm:h-14 outline-0 sm:w-[580px]'
+        // sx={{
+        //   width: '40rem',
+        //   mr: 2,
+        //   // [`& fieldset`]: {
+        //   //   borderRadius: 20,
+        //   // },
+        // }}
         placeholder={`Search from ${totalResults} companies`}
         value={name}
         onChange={handleChange}
       />
-      <Button
-        size="small"
-        sx={{
-          pb: 2,
-          pt: 2,
-          maxHeight: 55,
-        }}
-        variant="contained"
+      <button className='w-[72px] uppercase text-xs border mt-3 h-10 bg-[#096dd9]  rounded-lg hover:bg-[#afafaf] text-white font-bold md:tracking-wider focus:border-[#1f69b328]  sm:mt-0 sm:ml-8 sm:w-[120px] sm:h-14 '
+        // size="small"
+        // sx={{
+        //   pb: 2,
+        //   pt: 2,
+        //   maxHeight: 55,
+        // }}
+        // variant="contained"
         onClick={handleSubmit}
       >
         Search
-      </Button>
+      </button>
       {debouncedQuery &&
         companies?.data
           .slice(0, 5)

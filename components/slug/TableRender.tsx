@@ -5,11 +5,11 @@ import AdminsBlocks from './AdminsBlocks';
 import AdminsTable from './AdminsTable';
 import { ISlug } from '../../types/slug';
 
-interface ITableRender {
-  slug: ISlug;
-}
+// interface ITableRender {
+//   slug: ISlug;
+// }
 
-function TableRender({ slug }: ITableRender) {
+function TableRender({ slug }: ISlug) {
   const { width } = useWindowDimensions();
 
   return (
