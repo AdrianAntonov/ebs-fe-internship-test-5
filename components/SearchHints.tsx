@@ -1,5 +1,6 @@
 import { useState, useEffect, KeyboardEvent } from 'react';
 import { TextField, Button } from '@mui/material';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import CompaniesLink from './CompaniesLink';
@@ -52,31 +53,39 @@ function SearchHints({ totalResults }: ISearchHints) {
   };
 
   return (
-    <div onKeyDown={(e) => e.key === 'Enter' && handleSubmit(e)} className='flex flex-col sm:flex-row'>
-      <input className='w-[288px] h-10 p-2 bg-[#1f69b30d] border-2 border-gray-300  placeholder:text-[#c3c3c3]  sm:text-[20px] rounded-lg sm:h-14 outline-0 sm:w-[580px]'
-        // sx={{
-        //   width: '40rem',
-        //   mr: 2,
-        //   // [`& fieldset`]: {
-        //   //   borderRadius: 20,
-        //   // },
-        // }}
-        placeholder={`Search from ${totalResults} companies`}
-        value={name}
-        onChange={handleChange}
-      />
-      <button className='w-[72px] uppercase text-xs border mt-3 h-10 bg-[#096dd9]  rounded-lg hover:bg-[#afafaf] text-white font-bold md:tracking-wider focus:border-[#1f69b328]  sm:mt-0 sm:ml-8 sm:w-[120px] sm:h-14 '
-        // size="small"
-        // sx={{
-        //   pb: 2,
-        //   pt: 2,
-        //   maxHeight: 55,
-        // }}
-        // variant="contained"
-        onClick={handleSubmit}
+    <div className="flex-col">
+      <div
+        onKeyDown={(e) => e.key === 'Enter' && handleSubmit(e)}
+        className="flex flex-col flex-wrap lg:flex-row mb-2"
       >
-        Search
-      </button>
+        <input
+          className="h-10 w-[256px] rounded-lg border-2 border-gray-300 bg-[#1f69b30d]  p-2
+          outline-0 placeholder:text-[#c3c3c3] sm:h-12 sm:w-[320px] md:h-14 md:w-8/12 md:text-[20px]"
+          // sx={{
+          //   width: '40rem',
+          //   mr: 2,
+          //   // [`& fieldset`]: {
+          //   //   borderRadius: 20,
+          //   // },
+          // }}
+          placeholder={`Search from ${totalResults} companies`}
+          value={name}
+          onChange={handleChange}
+        />
+        <button
+          className="mt-3 h-10 w-[72px] rounded-lg border bg-[#047cc0] text-xs  font-bold  uppercase text-white hover:bg-[#5f5f5fd9] focus:border-[#1f69b328] sm:mt-6 sm:h-12 sm:w-[120px] sm:text-lg md:h-14  md:tracking-wider lg:mt-0 lg:ml-16"
+          // size="small"
+          // sx={{
+          //   pb: 2,
+          //   pt: 2,
+          //   maxHeight: 55,
+          // }}
+          // variant="contained"
+          onClick={handleSubmit}
+        >
+          Search
+        </button>
+      </div>
       {debouncedQuery &&
         companies?.data
           .slice(0, 5)

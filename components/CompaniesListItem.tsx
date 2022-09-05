@@ -21,7 +21,7 @@ function CompaniesListItem({ information }: ICompaniesListItem) {
     employees,
   } = information;
 
-  console.log(information);
+  // console.log(information);
   const router = useRouter();
 
   const handleClick = () => {
