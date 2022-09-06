@@ -1,6 +1,4 @@
 import { useRouter } from 'next/router';
-import { Card, Box, Paper, CardContent } from '@mui/material';
-import styles from '../styles/Home.module.css';
 import ICompaniesListItem from '../types/companiesListItem';
 
 function CompaniesListItem({ information }: ICompaniesListItem) {
@@ -27,98 +25,87 @@ function CompaniesListItem({ information }: ICompaniesListItem) {
   const handleClick = () => {
     router.push(`/companies/${slug}`);
   };
-
+ 
   return (
-    <Card
-      className={styles.card}
-      sx={{
-        marginBottom: '1rem',
-        backgroundColor: '#f9f9f9',
-        border: '1px solid hsla(0, 0%, 82%, 0.1)',
-      }}
-    >
-      <CardContent>
+    <section className="border-hsla(0, 0%, 82%, 0.1) text-4xl xs:text-3xl sm:text-2xl md:text-base mx-8 mb-4 border-[1px] border-solid bg-[#f9f9f9] hover:border-[#cae5fd] hover:shadow-[2px_2px_20px_#b4b4b4] sm:mx-auto sm:w-[80%] ">
+      <div className="px-4 pt-4 pb-6">
         <div>
-          <div>
-            <span className={styles.cardId}>{id}</span>
-            <span onClick={handleClick} className={styles.cardName}>
-              {name}
-            </span>
-          </div>
-          <Box
-            display="flex"
-            sx={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              // gap: '10rem',
-              justifyContent: 'space-around',
-              alignItems: 'center',
-            }}
+          <span className="pr-4 font-[700] ">{id}</span>
+          <span
+            onClick={handleClick}
+            className="relative inline-block cursor-pointer text-5xl xs:text-4xl sm:text-3xl md:text-xl font-bold tracking-widest text-[#096dd9] hover:text-[#8db6da]"
           >
-            <Box>
-              <div>
-                <span className={styles.title}>IDNO&#58;</span>{' '}
-                <span className={styles.values}>{idno}</span>
-              </div>
-              <div>
-                <span className={styles.title}>Status&#58;</span> {status}
-              </div>
-              <div>
-                <span className={styles.title}>Date of establishment&#58;</span>
-                {creation_date}
-              </div>
-              <div>
-                <span className={styles.title}>Virsta&#58;</span>
-              </div>
-            </Box>
-            <Box>
-              <div>
-                <span className={styles.title}>Nr. by the employees&#58;</span>
-                {employees}{' '}
-              </div>
-              <div>
-                <span className={styles.title}>Turnover&#58;</span> {turnover}
-              </div>
-              <div>
-                <span className={styles.title}>Industry&#58;</span>{' '}
-                <span className={styles.values}>{industry}</span>
-              </div>
-            </Box>
-            <Box>
-              <div style={{ display: 'flex' }}>
-                <div style={{ paddingRight: '5px' }} className={styles.title}>
-                  Contacts&#58;
-                </div>
-                <div>
-                  <div>
-                    <span className={styles.title}>Phone mobile&#58;</span>{' '}
-                    {mobile}
-                  </div>
-                  <div>
-                    <span className={styles.title}>Phone&#58;</span> {phone}
-                  </div>
-                  <div>
-                    <span className={styles.title}>Email&#58;</span> {email}
-                  </div>
-                  <div>
-                    <span className={styles.title}>Website&#58;</span>{' '}
-                    <a href={`${website}`}>{website}</a>
-                  </div>
-                </div>
-              </div>
-            </Box>
-          </Box>
-          <Box className={styles.cardFooter}>
-            {partners.length > 0 && (
-              <p className={styles.title}>
-                Founders of the company:{' '}
-                <span className={styles.cardFooterName}>{[...partners]}</span>
-              </p>
-            )}
-          </Box>
+            {name}
+          </span>
         </div>
-      </CardContent>
-    </Card>
+        <div className="mt-2 flex flex-col space-y-12 xs:space-y-0 xs:flex-row flex-wrap items-start justify-around">
+          <div>
+            <div>
+              <span className="title">IDNO&#58;</span>{' '}
+              <span className="font-bold">{idno}</span>
+            </div>
+            <div>
+              <span className="title">Status&#58;</span> {status}
+            </div>
+            <div>
+              <span className="title">Date of establishment&#58; </span>
+              {creation_date}
+            </div>
+            <div>
+              <span className="title">Virsta&#58;</span>
+            </div>
+          </div>
+          {/* ----------CONTAINER 2------------  */}
+          <div>
+            <div>
+              <span className="title">Nr. by the employees&#58; </span>
+              {employees}{' '}
+            </div>
+            <div>
+              <span className="title">Turnover&#58;</span> {turnover}
+            </div>
+            <div>
+              <span className="title">Industry&#58;</span>{' '}
+              <span className="font-bold">{industry}</span>
+            </div>
+          </div>
+          {/* ----------CONTAINER 2------------  */}
+          {/* ----------CONTAINER 3------------  */}
+          <div className="flex">
+            <div className="title pr-[5px]">Contacts&#58;</div>
+            <div>
+              <div>
+                <span className="title">Phone mobile&#58;</span> {mobile}
+              </div>
+              <div>
+                <span className="title">Phone&#58;</span> {phone}
+              </div>
+              <div>
+                <span className="title">Email&#58;</span> {email}
+              </div>
+              <div>
+                <span className="title">Website&#58;</span>{' '}
+                <a
+                  className="font-semibol text-[#096dd9] hover:text-[#08137c]"
+                  href={`${website}`}
+                >
+                  {website}
+                </a>
+              </div>
+            </div>
+          </div>
+        {/* ----------CONTAINER 3------------  */}
+        </div>
+        <div className="mt-4 border-t-[1px] border-solid border-[#bdbdbd] pt-6">
+          {partners.length > 0 && (
+            <p className="title ">
+              Founders of the company:{' '}
+              <span className="py-12 text-black">{[...partners]}</span>
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
 

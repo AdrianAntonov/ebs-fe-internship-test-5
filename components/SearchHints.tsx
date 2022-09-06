@@ -7,7 +7,7 @@ import CompaniesLink from './CompaniesLink';
 import { useDebounceValue } from '../hooks/useDebounceValue';
 
 interface ISearchHints {
-  totalResults: string;
+  totalResults?: string;
 }
 
 function SearchHints({ totalResults }: ISearchHints) {
@@ -21,7 +21,7 @@ function SearchHints({ totalResults }: ISearchHints) {
     e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>
   ) => {
     e.preventDefault();
-
+    setName('');
     router.push(`/companies?search=${name}`);
   };
 

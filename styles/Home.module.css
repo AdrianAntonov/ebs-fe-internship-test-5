@@ -126,17 +126,17 @@
   justify-content: center;
 }
 
-.title {
+/* .title {
   font-weight: 600;
   letter-spacing: 2px;
   color: rgba(153, 153, 153, 0.8);
   line-height: 1.7;
-}
+} */
 
 .values {
   font-weight: 700;
 }
-.card {
+/* .card {
   border-color: #e0e5ed;
   font-size: 14px;
   width: 80%;
@@ -145,15 +145,15 @@
 }
 .card:hover {
   box-shadow: 2px 2px 20px #b4b4b4;
-  border-color: #1890ff;
-}
+  border-color: #cae5fd;
+} */
 
-.cardId {
+/* .cardId {
   font-weight: 700;
   padding-right: 1rem;
-}
+} */
 
-.cardName {
+/* .cardName {
   position: relative;
   display: inline-block;
   font-size: 1.2rem;
@@ -161,14 +161,14 @@
   letter-spacing: 0.1rem;
   cursor: pointer;
   color: #096dd9;
-}
+} */
 
 /* color hover cardName #8db6da */
 /* color colorName #096dd9 */
 
-.cardName:hover {
+/* .cardName:hover {
   color: #8db6da;
-}
+} */
 
 /* .cardName:hover::after {
   position: absolute;
@@ -178,10 +178,10 @@
   width: 100%;
   background-color: #1890ff;
 } */
-.cardFooter {
+/* .cardFooter {
   margin-top: 1rem;
   border-top: 1px solid #bdbdbd;
-}
+} */
 .cardFooterName {
   color: #000000;
 }
@@ -359,7 +359,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   margin-top: 1rem;
-  box-shadow: 0 0.4375rem 1.6875rem 0.1875rem rgba(31, 105, 179, 0.05);
+  box-shadow: 0 0.4375rem 1.6875rem 0.1875rem #d6e8f3b9;
 }
 
 .partnerBlock {
