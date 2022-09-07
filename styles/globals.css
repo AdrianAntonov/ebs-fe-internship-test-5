@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .title {
     font-weight: 600;
     letter-spacing: 2px;
     color: rgb(131, 131, 131);
     line-height: 1.7;
+  }
+  .slugPreviousInfoItem {
+    background-color: #fff;
+    border: 0.0625rem solid #eaf0f6;
+    padding: 1.5625rem 3.125rem;
+    width: 100%;
   }
 }
 

@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-// import { Stack, Container } from '@mui/material';
 import CompaniesList from '../../components/CompaniesList';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Loading from '../../components/Loading';
 import ReactPaginate from 'react-paginate';
-// import NavBar from '../../components/NavBar';
 import SearchHints from '../../components/SearchHints';
 
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
@@ -54,7 +52,6 @@ function Companies() {
 
   return (
     <section className="mx-auto min-w-[1450px]">
-      {/* <h2>Companies</h2> */}
       <div className="my-16 w-[80%] pl-40">
         <SearchHints />
       </div>

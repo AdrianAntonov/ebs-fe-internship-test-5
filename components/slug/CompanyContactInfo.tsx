@@ -21,8 +21,20 @@ function CompanyContactInfo({ contacts }: contact) {
   ));
 
   return (
-    <div className={styles.ContactsInfo}>
-      <div className={styles.ContactsInfoHead}>Contact Information</div>
+    <div className="bg-white w-[100%] shadow-[0_0.4375rem_1.6875rem_0.1875rem_#1f69b30d]">
+      {/* .ContactsInfo {
+  background-color: #ffffff;
+  width: 100%;
+  box-shadow: 0 0.4375rem 1.6875rem 0.1875rem rgba(31, 105, 179, 0.05);
+} */}
+      <div className="text-xl border-b-[1px] border-b-solid border-b-[#e1e1e1]">Contact Information</div>
+      {/* .ContactsInfoHead {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  margin-left: 1rem;
+} */}
       <div className={styles.ContactsInfoContent}>
         <div>Phones {phones}</div>
         <div>Faxes {faxes}</div>

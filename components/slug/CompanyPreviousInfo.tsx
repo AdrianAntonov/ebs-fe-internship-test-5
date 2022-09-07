@@ -4,20 +4,20 @@ import { ICompanyPreviousInfo } from '../../types/companyPreviousData';
 
 function PreviousInfo({ slug }: ICompanyPreviousInfo) {
   return (
-    <div className={styles.slugPreviousInfo}>
-      <div className={styles.slugPreviousInfoItem}>
+    <div className="mt-4 flex-wrap justify-between bg-white text-3xl shadow-[0_0.4375rem_1.6875rem_0.1875rem_#1f69b30d] sm:flex sm:flex-nowrap md:text-2xl lg:text-base">
+      <div className="slugPreviousInfoItem">
         <div>IDNO</div>
         <div className={styles.itemInfo}>
           {slug.general_data.idno || <NoData />}
         </div>
       </div>
-      <div className={styles.slugPreviousInfoItem}>
+      <div className="slugPreviousInfoItem">
         <div>Date of establishment</div>
         <div className={styles.itemInfo}>
           {slug.general_data.creation_date || <NoData />}
         </div>
       </div>
-      <div className={styles.slugPreviousInfoItem}>
+      <div className="slugPreviousInfoItem">
         <div>Staff</div>
         <div className={styles.itemInfo}>
           {slug.general_data.size.name || <NoData />}

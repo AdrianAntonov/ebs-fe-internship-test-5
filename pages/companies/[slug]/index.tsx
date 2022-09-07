@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { useRouteMatch } from 'react-router-dom';
 import SlugContainer from '../../../components/slug/SlugContainer';
 import CompanyHeader from '../../../components/slug/CompanyHeader';
 import CompanyProfile from '../../../components/slug/CompanyProfile';
@@ -11,20 +10,17 @@ import CompanyInvestCapital from '../../../components/slug/CompanyInvestCapital'
 import SimilarCompanies from '../../../components/slug/SimilarCompanies';
 import CompanyTurnover from '../../../components/slug/CompanyTurnover';
 import { ISlug } from '../../../types/slug';
-import styles from '../../../styles/Home.module.css';
 import Loading from '../../../components/Loading';
 
 axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 function CompanyId({ slug }: ISlug) {
-  // const {url, path} = useRouteMatch();
-  // console.log(url);
-  // console.log(path);
   if (!slug) {
     return <Loading />;
   }
+
   return (
-    <div className={styles.wrapper}>
+    <div className="bg-[#fafafa]">
       <CompanyHeader slug={slug} />
       <SlugContainer>
         <PreviousInfo slug={slug} />
