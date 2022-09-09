@@ -1,7 +1,9 @@
+import {TStringOrNull} from "../types/quantityAdmPrt"
+
 export interface IBusinessHours {
   isActive: boolean;
-  timeFrom: string | null;
-  timeTill: string | null;
+  timeFrom: TStringOrNull,
+  timeTill: TStringOrNull,
   title: string;
   value: string;
 }

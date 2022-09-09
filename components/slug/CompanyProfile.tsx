@@ -1,7 +1,7 @@
 import CompanyWorkhours from './CompanyWorkhours';
 import { ICompanyProfile } from '../../types/companyProfile';
 
-function CompanyProfile({ slug }: ICompanyProfile) {
+function CompanyProfile({ data }: ICompanyProfile) {
   return (
     <div className="mt-4 flex justify-between">
       <div className="w-[100%] bg-white shadow-[0_0.4375rem_1.6875rem_0.1875rem_#1f69b30d]">
@@ -11,10 +11,10 @@ function CompanyProfile({ slug }: ICompanyProfile) {
         >
           Company profile
         </div>
-        <div className="ml-4 py-4">{slug.general_data.description}</div>
+        <div className="ml-4 py-4">{data.general_data.description}</div>
       </div>
       <div className="w-[100%] bg-white shadow-[0_0.4375rem_1.6875rem_0.1875rem_#1f69b30d]">
-        <CompanyWorkhours data={slug.general_data.business_hours} />
+        <CompanyWorkhours data={data.general_data.business_hours} />
       </div>
     </div>
   );

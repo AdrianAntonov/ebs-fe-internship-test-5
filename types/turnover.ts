@@ -8,7 +8,7 @@ export interface ITurnover {
 }
 
 export interface ICompanyTurnover {
-  slug: {
+  data: {
     general_data: {
       turnover: ITurnover;
     };

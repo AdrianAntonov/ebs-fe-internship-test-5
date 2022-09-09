@@ -2,10 +2,10 @@ import styles from '../../styles/Home.module.css';
 import { NoData } from './NoData';
 import { ICompanyInvestCapital } from '../../types/companyInvestCapital';
 
-function CompanyInvestCapital({ slug }: ICompanyInvestCapital) {
+function CompanyInvestCapital({ data }: ICompanyInvestCapital) {
   const countries =
-    slug.general_data.social_capital.countries.length > 0 ? (
-      slug.general_data.social_capital.countries.map((country) => (
+    data.general_data.social_capital.countries.length > 0 ? (
+      data.general_data.social_capital.countries.map((country) => (
         <div key={country.id}>{country.title}</div>
       ))
     ) : (
@@ -16,7 +16,7 @@ function CompanyInvestCapital({ slug }: ICompanyInvestCapital) {
       <div className={styles.slugPreviousInfoItem}>
         Type of social capital
         <div className={styles.itemInfo}>
-          {slug.general_data?.social_capital?.type?.title || <NoData />}
+          {data.general_data?.social_capital?.type?.title || <NoData />}
         </div>
       </div>
       <div className={styles.slugPreviousInfoItem}>

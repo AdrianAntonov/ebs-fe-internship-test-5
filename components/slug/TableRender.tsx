@@ -5,24 +5,22 @@ import AdminsBlocks from './AdminsBlocks';
 import AdminsTable from './AdminsTable';
 import { ISlug } from '../../types/slug';
 
-// interface ITableRender {
-//   slug: ISlug;
-// }
 
-function TableRender({ slug }: ISlug) {
+
+function TableRender({ data }: ISlug) {
   const { width } = useWindowDimensions();
 
   return (
     <div>
       {width > 710 ? (
         <div>
-          <AdminsTable slug={slug} />
-          <PartnersTable slug={slug} />
+          <AdminsTable slug={data} />
+          <PartnersTable slug={data} />
         </div>
       ) : (
         <div>
-          <AdminsBlocks slug={slug} />
-          <PartnersBlocks slug={slug} />
+          <AdminsBlocks slug={data} />
+          <PartnersBlocks slug={data} />
         </div>
       )}
     </div>

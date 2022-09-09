@@ -3,11 +3,11 @@ import CompanyContactInfo from './CompanyContactInfo';
 import CompanyLocation from './CompanyLocation';
 import { ICompanyContacts } from '../../types/generalContactInfo';
 
-function CompanyContacts({ slug }: ICompanyContacts) {
+function CompanyContacts({ data }: ICompanyContacts) {
   return (
     <div className={styles.ContactsInfoWrapper}>
-      <CompanyContactInfo contacts={slug.general_data.contact_info} />
-      <CompanyLocation contacts={slug.general_data.contact_info} />
+      <CompanyContactInfo contacts={data.general_data.contact_info} />
+      <CompanyLocation contacts={data.general_data.contact_info} />
     </div>
   );
 }

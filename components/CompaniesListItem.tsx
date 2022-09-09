@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import ICompaniesListItem from '../types/companiesListItem';
+import InformationProps from '../types/companiesListItem';
 
-function CompaniesListItem({ information }: ICompaniesListItem) {
+function CompaniesListItem({ information }: InformationProps) {
   const {
     id,
     name,
@@ -19,7 +19,6 @@ function CompaniesListItem({ information }: ICompaniesListItem) {
     employees,
   } = information;
 
-  // console.log(information);
   const router = useRouter();
 
   const handleClick = () => {

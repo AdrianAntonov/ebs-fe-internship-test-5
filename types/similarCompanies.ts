@@ -9,7 +9,7 @@ export interface ISimilarCompanies {
 }
 
 export interface ISimilarCompaniesProps {
-  slug: {
+  data: {
     similar_companies: ISimilarCompanies[];
   };
 }

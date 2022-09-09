@@ -12,25 +12,25 @@ import CompanyTurnover from '../../../components/slug/CompanyTurnover';
 import { ISlug } from '../../../types/slug';
 import Loading from '../../../components/Loading';
 
-axios.defaults.baseURL = 'https://app.informer.md/api/public';
+// axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
-function CompanyId({ slug }: ISlug) {
-  if (!slug) {
+function CompanyId({ data }: ISlug) {
+  if (!data) {
     return <Loading />;
   }
 
   return (
     <div className="bg-[#fafafa]">
-      <CompanyHeader slug={slug} />
+      <CompanyHeader data={data} />
       <SlugContainer>
-        <PreviousInfo slug={slug} />
-        <CompanyProfile slug={slug} />
-        <CompanyContacts slug={slug} />
-        <QuantityAdminsPartners slug={slug} />
-        <TableRender slug={slug} />
-        <CompanyTurnover slug={slug} />
-        <CompanyInvestCapital slug={slug} />
-        <SimilarCompanies slug={slug} />
+        <PreviousInfo data={data} />
+        <CompanyProfile data={data} />
+        <CompanyContacts data={data} />
+        <QuantityAdminsPartners data={data} />
+        <TableRender data={data} />
+        <CompanyTurnover data={data} />
+        <CompanyInvestCapital data={data} />
+        <SimilarCompanies data={data} />
       </SlugContainer>
     </div>
   );
@@ -40,10 +40,10 @@ export default CompanyId;
 
 CompanyId.getInitialProps = async ({ query }) => {
   const result = await axios.get(
-    `https://app.informer.md/api/public/company?slug=${query.slug}`
+    `/company?slug=${query.slug}`
   );
 
   return {
-    slug: result.data,
+    data: result.data,
   };
 };

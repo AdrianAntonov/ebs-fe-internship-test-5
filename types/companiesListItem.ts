@@ -1,4 +1,6 @@
-export default interface ICompaniesListItem {
+import { TStringOrNull } from "./quantityAdmPrt";
+
+export default interface InformationProps {
   information: {
     id: number;
     name: string;
@@ -9,10 +11,10 @@ export default interface ICompaniesListItem {
     status: string;
     turnover: number;
     partners: string[];
-    mobile: string | null;
-    phone: string | null;
-    slug: string | null;
-    industry: string | null;
+    mobile: TStringOrNull;
+    phone: TStringOrNull;
+    slug: TStringOrNull;
+    industry: TStringOrNull;
     employees: string;
   };
 }

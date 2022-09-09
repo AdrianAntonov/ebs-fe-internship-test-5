@@ -7,7 +7,7 @@ import { ISimilarCompanies } from './similarCompanies';
 import { IPersonalQuantity } from './quantityAdmPrt';
 
 export interface ISlug {
-  slug: {
+  data: {
     id: number;
     name: string;
     status: {

@@ -2,19 +2,19 @@ import styles from '../../styles/Home.module.css';
 import { NoData } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function QuantityAdminsPartners({ slug }: IAdmPrtQuantity) {
+function QuantityAdminsPartners({ data }: IAdmPrtQuantity) {
   return (
     <div className={styles.slugPreviousInfo}>
       <div className={styles.slugPreviousInfoItem}>
         Administrators
         <div className={styles.itemInfo}>
-          {slug.personal?.ADM?.length || <NoData />}
+          {data.personal?.ADM?.length || <NoData />}
         </div>
       </div>
       <div className={styles.slugPreviousInfoItem}>
         Partners
         <div className={styles.itemInfo}>
-          {slug.personal.PRT?.length || <NoData />}
+          {data.personal.PRT?.length || <NoData />}
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ export interface IProfile {
   business_hours: IBusinessHours[];
 }
 export interface ICompanyProfile {
-  slug: {
+  data: {
     general_data: IProfile;
   };
 }

@@ -10,8 +10,8 @@ import {
 import { ICompanyTurnover } from '../../types/turnover';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 
-function CompanyTurnover({ slug }: ICompanyTurnover) {
-  const sum = slug.general_data.turnover.last.toLocaleString();
+function CompanyTurnover({ data }: ICompanyTurnover) {
+  const sum = data.general_data.turnover.last.toLocaleString();
   const { width } = useWindowDimensions();
 
   let xAxis = 1220;
@@ -47,7 +47,7 @@ function CompanyTurnover({ slug }: ICompanyTurnover) {
               <LineChart
                 width={xAxis}
                 height={400}
-                data={slug.general_data.turnover.graph}
+                data={data.general_data.turnover.graph}
                 margin={{ top: 25, right: 30, left: 35, bottom: 5 }}
               >
                 <CartesianGrid />

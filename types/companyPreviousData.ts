@@ -4,7 +4,7 @@ export interface ISize {
 }
 
 export interface ICompanyPreviousInfo {
-  slug: {
+  data: {
     general_data: {
       idno: string;
       creation_date: string;

@@ -9,5 +9,5 @@ export interface IHeader {
 }
 
 export interface headerSlug {
-  slug: IHeader;
+  data: IHeader;
 }

@@ -5,10 +5,10 @@ import styles from '../../styles/Home.module.css';
 import { NoDataTable } from './NoData';
 import { ISimilarCompaniesProps } from '../../types/similarCompanies';
 
-function SimilarCompanies({ slug }: ISimilarCompaniesProps) {
+function SimilarCompanies({ data }: ISimilarCompaniesProps) {
   const companies =
-    slug.similar_companies !== null ? (
-      slug.similar_companies.map((company) => (
+    data.similar_companies !== null ? (
+      data.similar_companies.map((company) => (
         <TableRow className={styles.dayRow} key={company.id}>
           <TableCell>{company?.name}</TableCell>
           <TableCell>{company?.industry}</TableCell>

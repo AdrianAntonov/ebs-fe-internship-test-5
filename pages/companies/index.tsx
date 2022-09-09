@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import CompaniesList from '../../components/CompaniesList';
-import axios from 'axios';
+// import axios from 'axios';
+import { axios } from '../../libs/axios';
 import { useRouter } from 'next/router';
 import Loading from '../../components/Loading';
 import ReactPaginate from 'react-paginate';
 import SearchHints from '../../components/SearchHints';
 
-axios.defaults.baseURL = 'https://app.informer.md/api/public';
+// axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 interface ICompanies {
   total_results: number;

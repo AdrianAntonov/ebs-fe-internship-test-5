@@ -5,8 +5,8 @@ const CompaniesLink = ({ props }: iCompaniesLinkProps) => {
   const { idno, slug, name } = props;
 
   return (
-    <div className="w-[256px] border sm:w-[320px] md:w-8/12 hover:bg-[#e0f6ff] cursor-pointer flex justify-between rounded">
-      <Link style={{textDecoration: "none"}} href={`/companies/${slug}`}>
+    <div className="flex w-[256px] cursor-pointer justify-between rounded border hover:bg-[#e0f6ff] sm:w-[320px] md:w-8/12">
+      <Link style={{ textDecoration: 'none' }} href={`/companies/${slug}`}>
         {idno} {name}
       </Link>
       <svg

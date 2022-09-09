@@ -1,11 +1,12 @@
 import { GetStaticProps } from 'next';
 // import { Container } from '@mui/material';
 import NavBar from '../components/NavBar';
-import axios from 'axios';
+// import axios from 'axios';
+import {axios} from "../libs/axios"
 import SearchHints from '../components/SearchHints';
 import Loading from '../components/Loading';
 
-axios.defaults.baseURL = 'https://app.informer.md/api/public';
+// axios.defaults.baseURL = 'https://app.informer.md/api/public';
 
 interface iHomeProps {
   companies: number;

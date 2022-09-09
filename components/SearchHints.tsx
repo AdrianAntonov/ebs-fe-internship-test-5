@@ -1,6 +1,6 @@
-import { useState, useEffect, KeyboardEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import {axios} from '../libs/axios';
 import CompaniesLink from './CompaniesLink';
 import { useDebounceValue } from '../hooks/useDebounceValue';
 
@@ -19,8 +19,8 @@ function SearchHints({ totalResults }: ISearchHints) {
     e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>
   ) => {
     e.preventDefault();
-    setName('');
     router.push(`/companies?search=${name}`);
+    setName('');
   };
 
   /////// cand se va reincarca pagina va seta campul TextField fara caractere
@@ -35,11 +35,15 @@ function SearchHints({ totalResults }: ISearchHints) {
     }
 
     const fetchCompanies = async () => {
-      const data = await axios.get(
-        `/search?page=1&company_name=${debouncedQuery}`
-      );
-      console.log(data);
-      setCompanies(data.data);
+      try {
+        const data = await axios.get(
+          `/search?page=1&per_page=5&company_name=${debouncedQuery}`
+        );
+        console.log(data);
+        setCompanies(data.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchCompanies();
@@ -49,6 +53,7 @@ function SearchHints({ totalResults }: ISearchHints) {
     e.preventDefault();
     setName(e.target.value);
   };
+
 
   return (
     <div className="flex-col">
@@ -78,9 +83,7 @@ function SearchHints({ totalResults }: ISearchHints) {
         </button>
       </div>
       {debouncedQuery &&
-        companies?.data
-          .slice(0, 5)
-          .map((i) => <CompaniesLink key={i.id} props={i} />)}
+        companies?.data.map((i) => <CompaniesLink key={i.id} props={i} />)}
     </div>
   );
 }
