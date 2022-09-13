@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import {axios} from '../libs/axios';
+import { axios } from '../libs/axios';
 import CompaniesLink from './CompaniesLink';
 import { useDebounceValue } from '../hooks/useDebounceValue';
+import { useFetchingHook } from '../hooks/useFetchingHook';
 
 interface ISearchHints {
   totalResults?: string;
@@ -29,6 +30,8 @@ function SearchHints({ totalResults }: ISearchHints) {
   }, [setName]);
   ///////////////////////////////////////////////////
 
+  const { data } = useFetchingHook(debouncedQuery);
+
   useEffect(() => {
     if (debouncedQuery === '' || debouncedQuery === ' ') {
       return;
@@ -36,10 +39,10 @@ function SearchHints({ totalResults }: ISearchHints) {
 
     const fetchCompanies = async () => {
       try {
-        const data = await axios.get(
-          `/search?page=1&per_page=5&company_name=${debouncedQuery}`
-        );
-        console.log(data);
+        // const data = await axios.get(
+        //   `/search?page=1&per_page=5&company_name=${debouncedQuery}`
+        // );
+        // console.log(data);
         setCompanies(data.data);
       } catch (error) {
         console.log(error);
@@ -47,13 +50,13 @@ function SearchHints({ totalResults }: ISearchHints) {
     };
 
     fetchCompanies();
-  }, [debouncedQuery]);
+  }, [data, debouncedQuery]);
 
   const handleChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
   };
-
+  // console.log(companies);
 
   return (
     <div className="flex-col">

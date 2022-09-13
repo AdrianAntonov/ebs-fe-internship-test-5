@@ -20,7 +20,7 @@ function CompaniesListItem({ information }: InformationProps) {
   } = information;
 
   const router = useRouter();
-
+// console.log(slug);
   const handleClick = () => {
     router.push(`/companies/${slug}`);
   };

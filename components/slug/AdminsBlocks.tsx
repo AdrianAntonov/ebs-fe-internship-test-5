@@ -2,10 +2,10 @@ import styles from '../../styles/Home.module.css';
 import { NoData } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function AdminsBlocks({ slug }: IAdmPrtQuantity) {
+function AdminsBlocks({ data }: IAdmPrtQuantity) {
   const administrators =
-    slug?.personal?.ADM?.length > 0 ? (
-      slug?.personal?.ADM?.map((item) => (
+    data?.personal?.ADM?.length > 0 ? (
+      data?.personal?.ADM?.map((item) => (
         <div key={item.id}>
           <p>Name and Surname: {item.name}</p>
           <p>

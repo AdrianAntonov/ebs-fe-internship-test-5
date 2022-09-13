@@ -5,10 +5,10 @@ import styles from '../../styles/Home.module.css';
 import { NoDataTable } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
-function PartnersTable({ slug }: IAdmPrtQuantity) {
+function PartnersTable({ data }: IAdmPrtQuantity) {
   const partners =
-    slug?.personal?.PRT?.length > 0 ? (
-      slug?.personal?.PRT?.map((item, idx) => (
+    data?.personal?.PRT?.length > 0 ? (
+      data?.personal?.PRT?.map((item, idx) => (
         <TableRow className={styles.dayRow} key={item.id}>
           <TableCell className={styles.firstCell}>
             <span className={styles.number}>{idx + 1}</span>

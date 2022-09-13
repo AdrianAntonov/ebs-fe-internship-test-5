@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 // import { Container } from '@mui/material';
 import NavBar from '../components/NavBar';
 // import axios from 'axios';
-import {axios} from "../libs/axios"
+import { axios } from '../libs/axios';
 import SearchHints from '../components/SearchHints';
 import Loading from '../components/Loading';
 
@@ -18,10 +18,10 @@ const Home = ({ companies }: iHomeProps) => {
   }
 
   return (
-    <div >
+    <div>
       <NavBar />
-      <section className="flex-row flex-wrap px-4 space-y-6 sm:space-y-8 w-10/12 mx-auto md:space-y-10">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-[700]  lg:leading-[56px] tracking-wide text-justify md:text-left mt-24 ">
+      <section className="mx-auto w-10/12 flex-row flex-wrap space-y-6 px-4 sm:space-y-8 md:space-y-10">
+        <h1 className="mt-24 text-justify text-2xl font-[700]  tracking-wide md:text-left md:text-3xl lg:text-4xl lg:leading-[56px] ">
           We help Republic of Moldova&#39;s companies upscale their business and
           minimize potential risks.
         </h1>

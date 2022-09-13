@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { QueryCache } from 'react-query';
+
 import CompaniesList from '../../components/CompaniesList';
 // import axios from 'axios';
 import { axios } from '../../libs/axios';
@@ -20,6 +22,18 @@ function Companies() {
   const [allCompanies, setAllCompanies] = useState<ICompanies>();
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
+  const queryCache = new QueryCache({
+    onError: (error) => {
+      console.log(error);
+    },
+    onSuccess: (data) => {
+      console.log(data);
+    },
+  });
+console.log(router.query)
+  const query = queryCache.find(router.query?.search);
+  console.log(query);
 
   useEffect(() => {
     if (router.query.search === '') {

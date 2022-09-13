@@ -1,4 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
+import { axios } from '../../../libs/axios';
+
+import { QueryClient } from 'react-query';
+import { getQueries } from '../../../utils/ssr';
 import SlugContainer from '../../../components/slug/SlugContainer';
 import CompanyHeader from '../../../components/slug/CompanyHeader';
 import CompanyProfile from '../../../components/slug/CompanyProfile';
@@ -13,7 +17,6 @@ import { ISlug } from '../../../types/slug';
 import Loading from '../../../components/Loading';
 
 // axios.defaults.baseURL = 'https://app.informer.md/api/public';
-
 function CompanyId({ data }: ISlug) {
   if (!data) {
     return <Loading />;
@@ -38,12 +41,33 @@ function CompanyId({ data }: ISlug) {
 
 export default CompanyId;
 
-CompanyId.getInitialProps = async ({ query }) => {
-  const result = await axios.get(
-    `/company?slug=${query.slug}`
+// CompanyId.getInitialProps = async ({ query }) => {
+//   const result = await axios.get(
+//     `/company?slug=${query.slug}`
+//   );
+
+//   return {
+//     data: result.data,
+//   };
+// };
+
+CompanyId.getInitialProps = async ({ query }): Promise<Record<string, any>> => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        refetchOnMount: true,
+      },
+    },
+  });
+
+  await queryClient.prefetchQuery(
+    ['data', { id: query?.slug }],
+    ({ queryKey: [, query] }: Record<string, any>) => axios.get(
+      `/company?slug=${query.slug}`
+    ).then(({ data }) => data), // It would be better to move requests to a separate api folder 
+    { cacheTime: 50000 },
   );
 
-  return {
-    data: result.data,
-  };
+  return getQueries(queryClient); // Returns: { data }
 };
