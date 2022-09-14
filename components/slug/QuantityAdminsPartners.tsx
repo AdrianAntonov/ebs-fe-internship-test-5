@@ -8,13 +8,13 @@ function QuantityAdminsPartners({ data }: IAdmPrtQuantity) {
       <div className={styles.slugPreviousInfoItem}>
         Administrators
         <div className={styles.itemInfo}>
-          {data.personal?.ADM?.length || <NoData />}
+          {data?.personal?.ADM?.length || <NoData />}
         </div>
       </div>
       <div className={styles.slugPreviousInfoItem}>
         Partners
         <div className={styles.itemInfo}>
-          {data.personal.PRT?.length || <NoData />}
+          {data?.personal?.PRT?.length || <NoData />}
         </div>
       </div>
     </div>

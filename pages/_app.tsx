@@ -1,13 +1,7 @@
 import AppProvider from '../context/AppProvider';
 import { useState } from 'react';
-import { ReactQueryDevtools } from 'react-query/devtools'
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { Hydrate } from 'react-query/hydration';
 import '../styles/globals.css';
 

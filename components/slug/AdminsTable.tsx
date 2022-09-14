@@ -1,9 +1,10 @@
 import TableCell from '@mui/material/TableCell';
+import dynamic from 'next/dynamic';
 import TableRow from '@mui/material/TableRow';
-import CompanyTableData from '../CompanyTableData';
-import styles from '../../styles/Home.module.css';
+import styles from 'styles/Home.module.css';
 import { NoDataTable } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
+const CompanyTableData = dynamic(()=>import('../CompanyTableData')) ;
 
 function AdminsTable({ data }: IAdmPrtQuantity) {
   const administrators =

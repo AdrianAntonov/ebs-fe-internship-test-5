@@ -1,26 +1,25 @@
-import useWindowDimensions from '../../hooks/useWindowDimensions';
-import PartnersBlocks from './PartnersBlocks';
-import PartnersTable from './PartnersTable';
-import AdminsBlocks from './AdminsBlocks';
-import AdminsTable from './AdminsTable';
+import dynamic from 'next/dynamic';
 import { ISlug } from '../../types/slug';
-
-
+const PartnersBlocks = dynamic(() => import('./PartnersBlocks'));
+const PartnersTable = dynamic(() => import('./PartnersTable'));
+const AdminsBlocks = dynamic(() => import('./AdminsBlocks'));
+const AdminsTable = dynamic(() => import('./AdminsTable'));
 
 function TableRender({ data }: ISlug) {
-  const { width } = useWindowDimensions();
+  const { innerWidth } = globalThis.window;
 
   return (
     <div>
-      {width > 710 ? (
+      {/* --------  Se va transcrie pe Tailwind -------- */}
+      {innerWidth > 710 ? (
         <div>
-          <AdminsTable slug={data} />
-          <PartnersTable slug={data} />
+          <AdminsTable data={data} />
+          <PartnersTable data={data} />
         </div>
       ) : (
         <div>
-          <AdminsBlocks slug={data} />
-          <PartnersBlocks slug={data} />
+          <AdminsBlocks data={data} />
+          <PartnersBlocks data={data} />
         </div>
       )}
     </div>

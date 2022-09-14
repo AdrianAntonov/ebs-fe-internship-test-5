@@ -1,4 +1,6 @@
-import CompaniesListItem from "./CompaniesListItem";
+import dynamic from 'next/dynamic';
+
+const CompaniesListItem = dynamic(() => import('./CompaniesListItem'));
 
 export default function CompaniesList({ companies }) {
   return (

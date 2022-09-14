@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
+
 import { axios } from '../libs/axios';
-import CompaniesLink from './CompaniesLink';
+const  CompaniesLink = dynamic(()=> import('./CompaniesLink')) ;
 import { useDebounceValue } from '../hooks/useDebounceValue';
 import { useFetchingHook } from '../hooks/useFetchingHook';
 
@@ -43,7 +45,7 @@ function SearchHints({ totalResults }: ISearchHints) {
         //   `/search?page=1&per_page=5&company_name=${debouncedQuery}`
         // );
         // console.log(data);
-        setCompanies(data.data);
+        setCompanies(data?.data);
       } catch (error) {
         console.log(error);
       }
@@ -86,7 +88,7 @@ function SearchHints({ totalResults }: ISearchHints) {
         </button>
       </div>
       {debouncedQuery &&
-        companies?.data.map((i) => <CompaniesLink key={i.id} props={i} />)}
+        companies?.data?.map((i) => <CompaniesLink key={i.id} props={i} />)}
     </div>
   );
 }

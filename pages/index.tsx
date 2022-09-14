@@ -1,12 +1,9 @@
 import { GetStaticProps } from 'next';
-// import { Container } from '@mui/material';
-import NavBar from '../components/NavBar';
-// import axios from 'axios';
 import { axios } from '../libs/axios';
-import SearchHints from '../components/SearchHints';
-import Loading from '../components/Loading';
-
-// axios.defaults.baseURL = 'https://app.informer.md/api/public';
+import dynamic from 'next/dynamic';
+const NavBar = dynamic(() => import('components/NavBar'));
+const SearchHints = dynamic(() => import('components/SearchHints'));
+const Loading = dynamic(() => import('components/Loading'));
 
 interface iHomeProps {
   companies: number;
@@ -31,7 +28,6 @@ const Home = ({ companies }: iHomeProps) => {
   );
 };
 export default Home;
-///////////////////    HOW GET name FROM name state???     ////////////////////
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await axios.get(`/search?page=1&per_page=5&company_name= `);

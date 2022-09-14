@@ -4,8 +4,8 @@ import { ICompanyInvestCapital } from '../../types/companyInvestCapital';
 
 function CompanyInvestCapital({ data }: ICompanyInvestCapital) {
   const countries =
-    data.general_data.social_capital.countries.length > 0 ? (
-      data.general_data.social_capital.countries.map((country) => (
+    data?.general_data?.social_capital?.countries.length > 0 ? (
+      data?.general_data?.social_capital?.countries?.map((country) => (
         <div key={country.id}>{country.title}</div>
       ))
     ) : (
@@ -16,7 +16,7 @@ function CompanyInvestCapital({ data }: ICompanyInvestCapital) {
       <div className={styles.slugPreviousInfoItem}>
         Type of social capital
         <div className={styles.itemInfo}>
-          {data.general_data?.social_capital?.type?.title || <NoData />}
+          {data?.general_data?.social_capital?.type?.title || <NoData />}
         </div>
       </div>
       <div className={styles.slugPreviousInfoItem}>

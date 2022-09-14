@@ -20,24 +20,25 @@ function CompaniesListItem({ information }: InformationProps) {
   } = information;
 
   const router = useRouter();
-// console.log(slug);
+
   const handleClick = () => {
+    // console.log(slug)
     router.push(`/companies/${slug}`);
   };
- 
+
   return (
-    <section className="border-hsla(0, 0%, 82%, 0.1) text-4xl xs:text-3xl sm:text-2xl md:text-base mx-8 mb-4 border-[1px] border-solid bg-[#f9f9f9] hover:border-[#cae5fd] hover:shadow-[2px_2px_20px_#b4b4b4] sm:mx-auto sm:w-[80%] ">
+    <section className="border-hsla(0, 0%, 82%, 0.1) mx-8 mb-4 border-[1px] border-solid bg-[#f9f9f9] text-4xl hover:border-[#cae5fd] hover:shadow-[2px_2px_20px_#b4b4b4] xs:text-3xl sm:mx-auto sm:w-[80%] sm:text-2xl md:text-base ">
       <div className="px-4 pt-4 pb-6">
         <div>
           <span className="pr-4 font-[700] ">{id}</span>
           <span
             onClick={handleClick}
-            className="relative inline-block cursor-pointer text-5xl xs:text-4xl sm:text-3xl md:text-xl font-bold tracking-widest text-[#096dd9] hover:text-[#8db6da]"
+            className="relative inline-block cursor-pointer text-5xl font-bold tracking-widest text-[#096dd9] hover:text-[#8db6da] xs:text-4xl sm:text-3xl md:text-xl"
           >
             {name}
           </span>
         </div>
-        <div className="mt-2 flex flex-col space-y-12 xs:space-y-0 xs:flex-row flex-wrap items-start justify-around">
+        <div className="mt-2 flex flex-col flex-wrap items-start justify-around space-y-12 xs:flex-row xs:space-y-0">
           <div>
             <div>
               <span className="title">IDNO&#58;</span>{' '}
@@ -93,7 +94,7 @@ function CompaniesListItem({ information }: InformationProps) {
               </div>
             </div>
           </div>
-        {/* ----------CONTAINER 3------------  */}
+          {/* ----------CONTAINER 3------------  */}
         </div>
         <div className="mt-4 border-t-[1px] border-solid border-[#bdbdbd] pt-6">
           {partners.length > 0 && (

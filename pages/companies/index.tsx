@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react';
-import { QueryCache } from 'react-query';
-
-import CompaniesList from '../../components/CompaniesList';
-// import axios from 'axios';
 import { axios } from '../../libs/axios';
 import { useRouter } from 'next/router';
-import Loading from '../../components/Loading';
+import dynamic from 'next/dynamic';
 import ReactPaginate from 'react-paginate';
-import SearchHints from '../../components/SearchHints';
-
-// axios.defaults.baseURL = 'https://app.informer.md/api/public';
+import { NextLabel, PreviousLabel } from 'images/svgImages';
+const CompaniesList = dynamic(() => import('components/CompaniesList'));
+const Loading = dynamic(() => import('components/Loading'));
+const SearchHints = dynamic(() => import('components/SearchHints'));
 
 interface ICompanies {
   total_results: number;
@@ -23,18 +20,6 @@ function Companies() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const queryCache = new QueryCache({
-    onError: (error) => {
-      console.log(error);
-    },
-    onSuccess: (data) => {
-      console.log(data);
-    },
-  });
-console.log(router.query)
-  const query = queryCache.find(router.query?.search);
-  console.log(query);
-
   useEffect(() => {
     if (router.query.search === '') {
       return;
@@ -46,9 +31,6 @@ console.log(router.query)
 
       setTotalPages(data.data.pages);
       setAllCompanies(data.data);
-      // router.push(
-      //   `/companies?search=${router.query.search}&page=${router.query.page}`
-      // );
     };
 
     fetchCompanies();
@@ -80,38 +62,8 @@ console.log(router.query)
             activeClassName={
               'bg-[#d6e8f3b9] text-sky-500 w-10 h-10 pt-1 scale-110 rounded-[30px] text-center'
             }
-            previousLabel={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-5 w-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5"
-                />
-              </svg>
-            }
-            nextLabel={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="h-5 w-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            }
+            previousLabel={<PreviousLabel />}
+            nextLabel={<NextLabel />}
           />
         )}
       </div>

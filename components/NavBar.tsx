@@ -3,6 +3,7 @@ import informerLogo from '../public/informerLogo.png';
 import { usePopper } from 'react-popper';
 import { useRef, useState, useEffect } from 'react';
 import cn from 'classnames';
+import { Chevron } from 'images/svgImages';
 
 function NavBar() {
   const [openAbout, setOpenAbout] = useState(false);
@@ -53,20 +54,7 @@ function NavBar() {
               <span data-name="about" className="hover:text-[#047cc0]">
                 All about informer
               </span>
-              <svg
-                className="ml-1 inline"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#047cc0"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+              <Chevron />
             </div>
             <div
               onMouseLeave={() => setOpenAbout(false)}
@@ -110,20 +98,7 @@ function NavBar() {
               <span data-name="solutions" className="hover:text-[#047cc0]">
                 Solutions
               </span>
-              <svg
-                className="ml-1 inline"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#047cc0"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+              <Chevron />
             </div>
             <div
               onMouseLeave={() => setOpenSolutions(false)}
@@ -168,35 +143,7 @@ function NavBar() {
             <div>
               <a href="#" className="mr-4 hover:text-[#047cc0] ">
                 Subscriptions
-                <svg
-                  className="ml-1 inline"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#047cc0"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-                {/* <svg
-                
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="h-6 w-6 ml-1 inline"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg> */}
+                <Chevron />
               </a>
             </div>
           </div>
