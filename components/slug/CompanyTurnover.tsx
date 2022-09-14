@@ -11,7 +11,8 @@ import { ICompanyTurnover } from '../../types/turnover';
 
 function CompanyTurnover({ data }: ICompanyTurnover) {
   const sum = data?.general_data?.turnover.last?.toLocaleString();
-  const { innerWidth } = globalThis.window;
+
+  // const { innerWidth } = globalThis.window;
 
   return (
     <div className="mt-4">
@@ -28,9 +29,9 @@ function CompanyTurnover({ data }: ICompanyTurnover) {
             {sum !== '0' ? (
               <LineChart
                 className="w-[920px] md:w-[600px] "
-                width={innerWidth}
+                width={1200}
                 height={400}
-                data={data?.general_data?.turnover.graph}
+                data={data?.general_data?.turnover?.graph}
                 margin={{ top: 25, right: 30, left: 35, bottom: 5 }}
               >
                 <CartesianGrid />

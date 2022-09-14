@@ -75,8 +75,7 @@ CompanyId.getInitialProps = async ({ query }): Promise<Record<string, any>> => {
 
   await queryClient.prefetchQuery(
     ['data', { id: query.slug }],
-    companies.search,
-    { cacheTime: 50000 }
+    companies.search
   );
 
   return getQueries(queryClient); // Returns: { data }

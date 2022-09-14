@@ -48,10 +48,10 @@ function NavBar() {
           <div className="hidden items-center text-[16px] font-bold tracking-wider  text-gray-700 lg:flex xl:justify-between">
             <div
               ref={refBox}
-              className="mr-4 cursor-pointer"
+              className="mr-4 cursor-pointer flex"
               onClick={handleClick}
             >
-              <span data-name="about" className="hover:text-[#047cc0]">
+              <span data-name="about"  className="hover:text-[#047cc0]">
                 All about informer
               </span>
               <Chevron />
@@ -92,7 +92,7 @@ function NavBar() {
             </div>
             <div
               ref={refBoxSolutions}
-              className="mr-4 cursor-pointer"
+              className="mr-4 cursor-pointer flex"
               onClick={handleClick}
             >
               <span data-name="solutions" className="hover:text-[#047cc0]">
@@ -141,7 +141,7 @@ function NavBar() {
               </a>
             </div>
             <div>
-              <a href="#" className="mr-4 hover:text-[#047cc0] ">
+              <a href="#" className="mr-4 hover:text-[#047cc0] flex ">
                 Subscriptions
                 <Chevron />
               </a>
