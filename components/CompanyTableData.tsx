@@ -20,11 +20,11 @@ const CompanyTableData: React.FC<ICompanyTableDataProps> = ({
 }) => {
   return (
     <TableContainer>
-      <Table sx={{ backgroundColor: '#ffffff' }}>
+      <Table className="bg-white">
         <TableHead>
           <TableRow>
             <TableCell align="left">
-              <span className={styles.tableHead}>{title}</span>
+              <span className="text-xl">{title}</span>
             </TableCell>
           </TableRow>
           {row}

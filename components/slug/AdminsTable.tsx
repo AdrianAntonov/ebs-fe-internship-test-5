@@ -40,7 +40,7 @@ function AdminsTable({ data }: IAdmPrtQuantity) {
   );
 
   return (
-    <div className={styles.adminTable}>
+    <div className="showTable">
       <CompanyTableData
         data={administrators}
         title="Administrators"

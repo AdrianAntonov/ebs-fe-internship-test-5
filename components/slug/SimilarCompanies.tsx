@@ -22,7 +22,7 @@ function SimilarCompanies({ data }: ISimilarCompaniesProps) {
     ) : (
       <NoDataTable />
     );
-console.log(companies)
+console.log(typeof companies)
   const row = (
     <TableRow className={styles.tableRow}>
       <TableCell className={styles.tableRowTitle}>NAME</TableCell>

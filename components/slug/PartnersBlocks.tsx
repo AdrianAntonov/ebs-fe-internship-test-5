@@ -23,8 +23,8 @@ function PartnersBlocks({ data }: IAdmPrtQuantity) {
     );
 
   return (
-    <div className={styles.partnerBlock}>
-      <p className={styles.ContactsInfoHead}>Partners</p>
+    <div className="partnerBlock">
+      <p className="contactsInfoHead">Partners</p>
       {partners}
     </div>
   );

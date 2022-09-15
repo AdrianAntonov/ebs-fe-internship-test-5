@@ -1,13 +1,19 @@
 import { useState, useEffect } from 'react';
 
 function getWindowDimensions() {
-  if (typeof window !== 'undefined') {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
+  // if (typeof window !== 'undefined') {
+  //   const { innerWidth: width, innerHeight: height } = window;
+  //   return {
+  //     width,
+  //     height,
+  //   };
+  // }
+
+if(typeof globalThis.window !== "undefined") {
+  const {innerWidth: width} = globalThis.window;
+  return {width};
+}
+
   return { width: 500, height: 500 };
 }
 

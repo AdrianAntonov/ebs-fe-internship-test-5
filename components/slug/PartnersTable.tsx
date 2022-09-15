@@ -4,6 +4,7 @@ import CompanyTableData from '../CompanyTableData';
 import styles from '../../styles/Home.module.css';
 import { NoDataTable } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
+import cn from 'classnames';
 
 function PartnersTable({ data }: IAdmPrtQuantity) {
   const partners =
@@ -27,19 +28,19 @@ function PartnersTable({ data }: IAdmPrtQuantity) {
     );
 
   const row = (
-    <TableRow className={styles.tableRow}>
-      <TableCell className={`${styles.tableRowTitle} ${styles.firstCell}`}>
+    <TableRow className="bg-[#eaf0f6]">
+      <TableCell className="tableRowTitle pl-10">
         Name and Surname
       </TableCell>
-      <TableCell className={styles.tableRowTitle}>Seniority</TableCell>
-      <TableCell className={styles.tableRowTitle}>Job Function</TableCell>
-      <TableCell className={styles.tableRowTitle}>Phone</TableCell>
-      <TableCell className={styles.tableRowTitle}>Email</TableCell>
+      <TableCell className="tableRowTitle">Seniority</TableCell>
+      <TableCell className="tableRowTitle">Job Function</TableCell>
+      <TableCell className="tableRowTitle">Phone</TableCell>
+      <TableCell className="tableRowTitle">Email</TableCell>
     </TableRow>
   );
 
   return (
-    <div className={styles.partnersTable}>
+    <div className="showTable">
       <CompanyTableData data={partners} title="Partners" row={row} />
     </div>
   );

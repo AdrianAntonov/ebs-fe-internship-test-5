@@ -6,13 +6,12 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from 'recharts';
 import { ICompanyTurnover } from '../../types/turnover';
 
 function CompanyTurnover({ data }: ICompanyTurnover) {
   const sum = data?.general_data?.turnover.last?.toLocaleString();
-
-  // const { innerWidth } = globalThis.window;
 
   return (
     <div className="mt-4">
@@ -27,21 +26,20 @@ function CompanyTurnover({ data }: ICompanyTurnover) {
           </div>
           <div>
             {sum !== '0' ? (
-              <LineChart
-                className="w-[920px] md:w-[600px] "
-                width={1200}
-                height={400}
-                data={data?.general_data?.turnover?.graph}
-                margin={{ top: 25, right: 30, left: 35, bottom: 5 }}
-              >
-                <CartesianGrid />
-                <XAxis dataKey="year" />
-                <YAxis dataKey="turnover" />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="year" stroke="#8884d8" />
-                <Line type="monotone" dataKey="turnover" stroke="#82ca9d" />
-              </LineChart>
+              <ResponsiveContainer width="90%" height={400}>
+                <LineChart
+                  data={data?.general_data?.turnover?.graph}
+                  margin={{ top: 25, right: 30, left: 35, bottom: 5 }}
+                >
+                  <CartesianGrid />
+                  <XAxis dataKey="year" />
+                  <YAxis dataKey="turnover" />
+                  <Tooltip />
+                  <Legend />
+                  <Line type="monotone" dataKey="year" stroke="#8884d8" />
+                  <Line type="monotone" dataKey="turnover" stroke="#82ca9d" />
+                </LineChart>
+              </ResponsiveContainer>
             ) : null}
           </div>
         </div>
