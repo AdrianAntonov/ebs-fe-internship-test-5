@@ -1,18 +1,17 @@
-import TableCell from '@mui/material/TableCell';
 import dynamic from 'next/dynamic';
+import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import styles from 'styles/Home.module.css';
 import { NoDataTable } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
-const CompanyTableData = dynamic(()=>import('../CompanyTableData')) ;
+const CompanyTableData = dynamic(() => import('../CompanyTableData'));
 
 function AdminsTable({ data }: IAdmPrtQuantity) {
   const administrators =
     data?.personal?.ADM?.length > 0 ? (
       data?.personal?.ADM?.map((item, idx) => (
-        <TableRow className={styles.dayRow} key={item.id}>
-          <TableCell className={styles.firstCell}>
-            <span className={styles.number}>{idx + 1}</span>
+        <TableRow key={item.id}>
+          <TableCell>
+            <span className="mx-6">{idx + 1}</span>
             {item.name}
           </TableCell>
           <TableCell>
@@ -28,14 +27,12 @@ function AdminsTable({ data }: IAdmPrtQuantity) {
     );
 
   const row = (
-    <TableRow className={styles.tableRow}>
-      <TableCell className={`${styles.tableRowTitle} ${styles.firstCell}`}>
-        Name and Surname
-      </TableCell>
-      <TableCell className={styles.tableRowTitle}>Seniority</TableCell>
-      <TableCell className={styles.tableRowTitle}>Job Function</TableCell>
-      <TableCell className={styles.tableRowTitle}>Phone</TableCell>
-      <TableCell className={styles.tableRowTitle}>Email</TableCell>
+    <TableRow className="bg-[#eaf0f6]">
+      <TableCell className="tableRowTitle">Name and Surname</TableCell>
+      <TableCell className="tableRowTitle">Seniority</TableCell>
+      <TableCell className="tableRowTitle">Job Function</TableCell>
+      <TableCell className="tableRowTitle">Phone</TableCell>
+      <TableCell className="tableRowTitle">Email</TableCell>
     </TableRow>
   );
 

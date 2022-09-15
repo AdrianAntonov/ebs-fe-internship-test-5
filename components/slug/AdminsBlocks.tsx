@@ -1,4 +1,3 @@
-import styles from 'styles/Home.module.css';
 import { NoData } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 

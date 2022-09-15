@@ -12,26 +12,20 @@ function CompanyContactInfo({ contacts }: contact) {
     <span key={idx}>{email}</span>
   ));
   const sites = contacts.sites.map((item, idx) => (
-    <div
-      key={idx}
-      className="facebookItem"
-    >
+    <div key={idx} className="facebookItem">
       <a href={item}>{item}</a>
     </div>
   ));
 
   return (
     <div className="contactsInfo">
-      <div className="contactsInfoHead">
-        Contact Information
-      </div>
+      <div className="contactsInfoHead">Contact Information</div>
       <div className="contactsInfoContent">
         <div>Phones {phones}</div>
         <div>Faxes {faxes}</div>
         <div>Mobile {mobiles}</div>
         <div>Emails {emails}</div>
         <div className="flex flex-wrap gap-1">
-          {/* facebookWrapper */}
           Websites:
           <div>{sites}</div>
         </div>

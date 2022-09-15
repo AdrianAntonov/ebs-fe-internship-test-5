@@ -3,7 +3,7 @@ import TableRow from '@mui/material/TableRow';
 import styles from '../../styles/Home.module.css';
 
 export function NoData() {
-  return <div className={styles.NoData}>NoData</div>;
+  return <div className={styles.NoData}>No Data</div>;
 }
 
 export function NoDataTable() {

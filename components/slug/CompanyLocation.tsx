@@ -1,18 +1,21 @@
-import styles from '../../styles/Home.module.css';
 import { ICompanyLocation } from '../../types/companyLocation';
 import { NoData } from './NoData';
 
 function CompanyLocation({ contacts }: ICompanyLocation) {
   return (
-    <div className={styles.ContactsInfo}>
-      <div className={styles.ContactsInfoHead}>Location</div>
-      <div className={styles.adresses}>
+    <div className="contactsInfo">
+      <div className="contactsInfoHead">Location</div>
+      <div className="pl-4 pt-2">
         <p>Adress de facto:</p>
-        <div>{contacts.address_de_facto.title || <NoData />}</div>
+        <div className="mt-[-8px]">
+          {contacts.address_de_facto.title || <NoData />}
+        </div>
       </div>
-      <div className={styles.adresses}>
+      <div className="pl-4">
         <p>Adress de jur:</p>
-        <div>{contacts.address_de_jur.title || <NoData />}</div>
+        <div className="mt-[-8px]">
+          {contacts.address_de_jur.title || <NoData />}
+        </div>
       </div>
     </div>
   );

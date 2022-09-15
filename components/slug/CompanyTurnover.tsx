@@ -15,9 +15,9 @@ function CompanyTurnover({ data }: ICompanyTurnover) {
 
   return (
     <div className="mt-4">
-      <div className="mt-4 flex justify-between">
-        <div className="w-[100%] bg-white shadow-[0_0.4375rem_1.6875rem_0.1875rem_#1f69b30d] ">
-          <div className="border-b-solid ml-4 border-b-[1px] border-b-[#e1e1e1] py-4 text-xl">
+      <div className="contactsInfoWrapper">
+        <div className="contactsInfo">
+          <div className="contactsInfoHead">
             Turnover
           </div>
 

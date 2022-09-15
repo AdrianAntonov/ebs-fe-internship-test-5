@@ -1,8 +1,7 @@
 import dynamic from 'next/dynamic';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-const CompanyTableData = dynamic(()=> import('../CompanyTableData')) ;
-import styles from '../../styles/Home.module.css';
+const CompanyTableData = dynamic(() => import('../CompanyTableData'));
 import { NoDataTable } from './NoData';
 import { ISimilarCompaniesProps } from '../../types/similarCompanies';
 
@@ -10,7 +9,7 @@ function SimilarCompanies({ data }: ISimilarCompaniesProps) {
   const companies =
     data?.similar_companies !== null ? (
       data?.similar_companies?.map((company) => (
-        <TableRow className={styles.dayRow} key={company.id}>
+        <TableRow className="hover:bg-[#fafafa]" key={company.id}>
           <TableCell>{company?.name}</TableCell>
           <TableCell>{company?.industry}</TableCell>
           <TableCell>{company?.location}</TableCell>
@@ -22,20 +21,20 @@ function SimilarCompanies({ data }: ISimilarCompaniesProps) {
     ) : (
       <NoDataTable />
     );
-console.log(typeof companies)
+  console.log(typeof companies);
   const row = (
-    <TableRow className={styles.tableRow}>
-      <TableCell className={styles.tableRowTitle}>NAME</TableCell>
-      <TableCell className={styles.tableRowTitle}>INDUSTRY</TableCell>
-      <TableCell className={styles.tableRowTitle}>LOCATION</TableCell>
-      <TableCell className={styles.tableRowTitle}>WEBSITE</TableCell>
-      <TableCell className={styles.tableRowTitle}>EMAIL</TableCell>
-      <TableCell className={styles.tableRowTitle}>PHONE</TableCell>
+    <TableRow className="bg-[#eaf0f6]">
+      <TableCell className="tableRowTitle">NAME</TableCell>
+      <TableCell className="tableRowTitle">INDUSTRY</TableCell>
+      <TableCell className="tableRowTitle">LOCATION</TableCell>
+      <TableCell className="tableRowTitle">WEBSITE</TableCell>
+      <TableCell className="tableRowTitle">EMAIL</TableCell>
+      <TableCell className="tableRowTitle">PHONE</TableCell>
     </TableRow>
   );
 
   return (
-    <div className={styles.adminTable}>
+    <div className="mx-auto mt-4 flex-wrap shadow-[0_0.4375rem_1.6875rem_0.1875rem_#d6e8f3b9]">
       <CompanyTableData data={companies} title="Similar companies" row={row} />
     </div>
   );
