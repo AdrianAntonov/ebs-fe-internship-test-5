@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import { NoDataTable } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
+import { NoDataTable } from './NoData';
 const CompanyTableData = dynamic(() => import('../CompanyTableData'));
 
 function AdminsTable({ data }: IAdmPrtQuantity) {

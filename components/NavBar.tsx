@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import informerLogo from '../public/informerLogo.png';
-import { usePopper } from 'react-popper';
 import { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
+import { usePopper } from 'react-popper';
 import cn from 'classnames';
+import informerLogo from '../public/informerLogo.png';
 import { Chevron } from 'images/svgImages';
 
 function NavBar() {
@@ -21,6 +21,7 @@ function NavBar() {
   const { styles, attributes } = usePopper(refBox.current, popBox.current, {
     placement: 'bottom-start',
   });
+
   const { styles: stylesSolutions, attributes: attributesSolutions } =
     usePopper(refBoxSolutions.current, popBoxSolutions.current, {
       placement: 'bottom-start',
@@ -35,7 +36,6 @@ function NavBar() {
       setOpenSolutions(true);
       setOpenAbout(false);
     }
-    console.log(e.target.dataset.name === 'about');
   };
 
   return (
@@ -48,10 +48,10 @@ function NavBar() {
           <div className="hidden items-center text-[16px] font-bold tracking-wider  text-gray-700 lg:flex xl:justify-between">
             <div
               ref={refBox}
-              className="mr-4 cursor-pointer flex"
+              className="mr-4 flex cursor-pointer"
               onClick={handleClick}
             >
-              <span data-name="about"  className="hover:text-[#047cc0]">
+              <span data-name="about" className="hover:text-[#047cc0]">
                 All about informer
               </span>
               <Chevron />
@@ -92,7 +92,7 @@ function NavBar() {
             </div>
             <div
               ref={refBoxSolutions}
-              className="mr-4 cursor-pointer flex"
+              className="mr-4 flex cursor-pointer"
               onClick={handleClick}
             >
               <span data-name="solutions" className="hover:text-[#047cc0]">
@@ -141,7 +141,7 @@ function NavBar() {
               </a>
             </div>
             <div>
-              <a href="#" className="mr-4 hover:text-[#047cc0] flex ">
+              <a href="#" className="mr-4 flex hover:text-[#047cc0] ">
                 Subscriptions
                 <Chevron />
               </a>

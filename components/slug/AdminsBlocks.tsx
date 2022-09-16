@@ -1,5 +1,5 @@
-import { NoData } from './NoData';
 import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
+import { NoData } from './NoData';
 
 function AdminsBlocks({ data }: IAdmPrtQuantity) {
   const administrators =

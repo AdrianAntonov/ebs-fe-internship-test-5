@@ -54,7 +54,6 @@ function CompaniesListItem({ information }: InformationProps) {
               <span className="title">Virsta&#58;</span>
             </div>
           </div>
-          {/* ----------CONTAINER 2------------  */}
           <div>
             <div>
               <span className="title">Nr. by the employees&#58; </span>
@@ -68,8 +67,6 @@ function CompaniesListItem({ information }: InformationProps) {
               <span className="font-bold">{industry}</span>
             </div>
           </div>
-          {/* ----------CONTAINER 2------------  */}
-          {/* ----------CONTAINER 3------------  */}
           <div className="flex">
             <div className="title pr-[5px]">Contacts&#58;</div>
             <div>
@@ -93,7 +90,6 @@ function CompaniesListItem({ information }: InformationProps) {
               </div>
             </div>
           </div>
-          {/* ----------CONTAINER 3------------  */}
         </div>
         <div className="mt-4 border-t-[1px] border-solid border-[#bdbdbd] pt-6">
           {partners.length > 0 && (

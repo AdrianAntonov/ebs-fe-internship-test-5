@@ -40,7 +40,7 @@
   }
   .contactsInfoContent {
     padding-bottom: 1rem;
-    padding-top: .5rem;
+    padding-top: 0.5rem;
     margin-left: 1rem;
     /* line-height: 1.5; */
   }
@@ -85,14 +85,14 @@
   .itemInfo {
     font-size: 1.5rem;
     font-weight: 600;
-    padding-top: .5rem;
+    padding-top: 0.5rem;
   }
 
   .loading {
     height: 100vh;
     background: linear-gradient(
       to bottom right,
-      rgba(31, 105, 179, 0.051), 
+      rgba(31, 105, 179, 0.051),
       rgba(31, 105, 179, 0.158) #1f69b328
     );
     display: flex;
@@ -108,17 +108,17 @@
     border-radius: 50%;
     animation: load 1s linear infinite;
   }
-
-  /* .slugHeaderContainer {
-    padding-top: 50px;
-    background-color: #fff;
-    margin-bottom: 1rem;
-  } */
-}
-
-/* @layer utilities {
-  .text-shadow {
-    text-shadow: 12px 8px 1px rgba(0, 0, 0, 0.308);
+  @keyframes load {
+    to {
+      transform: rotate(360deg);
+    }
   }
-  .box-shadow: 0 0.4375rem 1.6875rem 0.1875rem #d6e8f3b9;
-} */
+
+  .NoData {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1.5;
+    font-size: 1.5rem;
+    color: #c3c3c3;
+  }
+}

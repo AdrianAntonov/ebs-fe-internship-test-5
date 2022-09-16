@@ -5,5 +5,4 @@ const companies = {
     return axios.get(`/company?slug=${query.id}`).then(({ data }) => data);
   },
 };
-console.log(companies);
 export default companies;

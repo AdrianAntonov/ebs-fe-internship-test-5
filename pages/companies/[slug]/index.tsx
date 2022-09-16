@@ -1,6 +1,6 @@
-import companies from 'api/companies';
-import dynamic from 'next/dynamic';
 import { QueryClient } from 'react-query';
+import dynamic from 'next/dynamic';
+import companies from 'api/companies';
 import { getQueries } from 'utils/ssr';
 import { ISlug } from 'types/slug';
 const SlugContainer = dynamic(() => import('components/slug/Container'));
@@ -12,7 +12,9 @@ const CompanyContacts = dynamic(
 const QuantityAdminsPartners = dynamic(
   () => import('components/slug/QuantityAdminsPartners')
 );
-const TableRender = dynamic(() => import('components/slug/TableRender'));
+const TableRender = dynamic(() => import('components/slug/TableRender'), {
+  ssr: false,
+});
 const PreviousInfo = dynamic(
   () => import('components/slug/CompanyPreviousInfo')
 );
@@ -31,7 +33,7 @@ function CompanyId({ data }: ISlug) {
   if (!data) {
     return <Loading />;
   }
-  console.log(data);
+
   return (
     <div className="bg-[#fafafa]">
       <CompanyHeader data={data} />
@@ -51,19 +53,7 @@ function CompanyId({ data }: ISlug) {
 
 export default CompanyId;
 
-// CompanyId.getInitialProps = async ({ query }) => {
-//   const result = await axios.get(
-//     `/company?slug=${query.slug}`
-//   );
-
-//   return {
-//     data: result.data,
-//   };
-// };
-
 CompanyId.getInitialProps = async ({ query }): Promise<Record<string, any>> => {
-  console.log(query.slug);
-
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -78,5 +68,5 @@ CompanyId.getInitialProps = async ({ query }): Promise<Record<string, any>> => {
     companies.search
   );
 
-  return getQueries(queryClient); // Returns: { data }
+  return getQueries(queryClient);
 };

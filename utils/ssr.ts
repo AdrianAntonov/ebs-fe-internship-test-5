@@ -1,4 +1,3 @@
-// Add SSR util to get dehydrate state of queries: utils/ssr.ts
 import { dehydrate, QueryClient } from 'react-query';
 
 export const getQueries = (queryClient: QueryClient): Record<string, any> =>

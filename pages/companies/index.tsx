@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { axios } from '../../libs/axios';
-import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
 import ReactPaginate from 'react-paginate';
+import { useRouter } from 'next/router';
+import { axios } from '../../libs/axios';
+import dynamic from 'next/dynamic';
 import { NextLabel, PreviousLabel } from 'images/svgImages';
+const NoResult = dynamic(() => import('components/NoResult'));
 const CompaniesList = dynamic(() => import('components/CompaniesList'));
 const Loading = dynamic(() => import('components/Loading'));
 const SearchHints = dynamic(() => import('components/SearchHints'));
@@ -41,7 +42,7 @@ function Companies() {
   };
 
   if (allCompanies?.total_results === 0 || router.query.search === '') {
-    return <h2>Sorry, no results</h2>;
+    return <NoResult />;
   }
   if (!allCompanies) {
     return <Loading />;

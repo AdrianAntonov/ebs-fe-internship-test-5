@@ -1,5 +1,5 @@
-import { NoData } from './NoData';
 import { ICompanyPreviousInfo } from '../../types/companyPreviousData';
+import { NoData } from './NoData';
 
 function PreviousInfo({ data }: ICompanyPreviousInfo) {
   return (

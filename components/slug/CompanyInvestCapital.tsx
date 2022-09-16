@@ -1,6 +1,5 @@
-import styles from '../../styles/Home.module.css';
-import { NoData } from './NoData';
 import { ICompanyInvestCapital } from '../../types/companyInvestCapital';
+import { NoData } from './NoData';
 
 function CompanyInvestCapital({ data }: ICompanyInvestCapital) {
   const countries =
@@ -12,16 +11,16 @@ function CompanyInvestCapital({ data }: ICompanyInvestCapital) {
       <NoData />
     );
   return (
-    <div className={styles.slugPreviousInfo}>
-      <div className={styles.slugPreviousInfoItem}>
+    <div className="slugPreviousInfo md:flex-nowrap">
+      <div className="slugPreviousInfoItem">
         Type of social capital
-        <div className={styles.itemInfo}>
+        <div className="itemInfo">
           {data?.general_data?.social_capital?.type?.title || <NoData />}
         </div>
       </div>
-      <div className={styles.slugPreviousInfoItem}>
+      <div className="slugPreviousInfoItem">
         Country of Origin of Investments:
-        <div className={styles.itemInfo}>{countries}</div>
+        <div className="itemInfo">{countries}</div>
       </div>
     </div>
   );

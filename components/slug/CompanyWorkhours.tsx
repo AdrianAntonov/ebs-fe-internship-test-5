@@ -4,7 +4,6 @@ import CompanyTableData from '../CompanyTableData';
 import { IWorkingHours } from '../../types/businessHours';
 
 function CompanyWorkhours({ data }: IWorkingHours) {
-  // console.log(data);
   const hoursTable =
     data.length > 0 ? (
       data.map((day) => (

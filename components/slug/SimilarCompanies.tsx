@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import { ISimilarCompaniesProps } from '../../types/similarCompanies';
 const CompanyTableData = dynamic(() => import('../CompanyTableData'));
 import { NoDataTable } from './NoData';
-import { ISimilarCompaniesProps } from '../../types/similarCompanies';
 
 function SimilarCompanies({ data }: ISimilarCompaniesProps) {
   const companies =
@@ -21,8 +21,8 @@ function SimilarCompanies({ data }: ISimilarCompaniesProps) {
     ) : (
       <NoDataTable />
     );
-  console.log(typeof companies);
-  const row = (
+
+    const row = (
     <TableRow className="bg-[#eaf0f6]">
       <TableCell className="tableRowTitle">NAME</TableCell>
       <TableCell className="tableRowTitle">INDUSTRY</TableCell>

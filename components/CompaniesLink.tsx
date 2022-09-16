@@ -1,6 +1,6 @@
-import { UpArrow } from 'images/svgImages';
 import Link from 'next/link';
 import { iCompaniesLinkProps } from '../types/companiesLink';
+import { UpArrow } from 'images/svgImages';
 
 const CompaniesLink = ({ props }: iCompaniesLinkProps) => {
   const { idno, slug, name } = props;

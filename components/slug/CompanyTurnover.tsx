@@ -17,10 +17,7 @@ function CompanyTurnover({ data }: ICompanyTurnover) {
     <div className="mt-4">
       <div className="contactsInfoWrapper">
         <div className="contactsInfo">
-          <div className="contactsInfoHead">
-            Turnover
-          </div>
-
+          <div className="contactsInfoHead">Turnover</div>
           <div className="py-4 pl-4 text-xl font-bold text-[#2083be]">
             {sum} MDL
           </div>

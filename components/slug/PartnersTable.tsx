@@ -1,8 +1,8 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 import CompanyTableData from '../CompanyTableData';
 import { NoDataTable } from './NoData';
-import { IAdmPrtQuantity } from '../../types/quantityAdmPrt';
 
 function PartnersTable({ data }: IAdmPrtQuantity) {
   const partners =

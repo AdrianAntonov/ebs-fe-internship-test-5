@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-
-import { axios } from '../libs/axios';
-const  CompaniesLink = dynamic(()=> import('./CompaniesLink')) ;
 import { useDebounceValue } from '../hooks/useDebounceValue';
 import { useFetchingHook } from '../hooks/useFetchingHook';
+const CompaniesLink = dynamic(() => import('./CompaniesLink'));
+const NoResult = dynamic(() => import('./NoResult'));
 
 interface ISearchHints {
   totalResults?: string;
@@ -26,11 +25,9 @@ function SearchHints({ totalResults }: ISearchHints) {
     setName('');
   };
 
-  /////// cand se va reincarca pagina va seta campul TextField fara caractere
   useEffect(() => {
     setName('');
   }, [setName]);
-  ///////////////////////////////////////////////////
 
   const { data } = useFetchingHook(debouncedQuery);
 
@@ -41,24 +38,19 @@ function SearchHints({ totalResults }: ISearchHints) {
 
     const fetchCompanies = async () => {
       try {
-        // const data = await axios.get(
-        //   `/search?page=1&per_page=5&company_name=${debouncedQuery}`
-        // );
-        // console.log(data);
         setCompanies(data?.data);
       } catch (error) {
-        console.log(error);
+        return <NoResult />;
       }
     };
 
     fetchCompanies();
   }, [data, debouncedQuery]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setName(e.target.value);
   };
-  // console.log(companies);
 
   return (
     <div className="flex-col">
@@ -69,13 +61,6 @@ function SearchHints({ totalResults }: ISearchHints) {
         <input
           className="h-10 w-[256px] cursor-default rounded-lg border-2 border-gray-300 bg-[#1f69b30d]  p-2
           outline-0 placeholder:text-[#c3c3c3] sm:h-12 sm:w-[320px] md:h-14 md:w-8/12 md:text-[20px]"
-          // sx={{
-          //   width: '40rem',
-          //   mr: 2,
-          //   // [`& fieldset`]: {
-          //   //   borderRadius: 20,
-          //   // },
-          // }}
           placeholder={`Search from ${totalResults} companies`}
           value={name}
           onChange={handleChange}

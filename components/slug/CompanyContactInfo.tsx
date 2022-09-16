@@ -4,13 +4,16 @@ function CompanyContactInfo({ contacts }: contact) {
   const phones = contacts.phones.map((phone, idx) => (
     <span key={idx}>{phone}</span>
   ));
+
   const faxes = contacts.faxes.map((fax, idx) => <span key={idx}>{fax}</span>);
   const mobiles = contacts.mobile.map((mobile, idx) => (
     <span key={idx}>{mobile}</span>
   ));
+
   const emails = contacts.emails.map((email, idx) => (
     <span key={idx}>{email}</span>
   ));
+
   const sites = contacts.sites.map((item, idx) => (
     <div key={idx} className="facebookItem">
       <a href={item}>{item}</a>
