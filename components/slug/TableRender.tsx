@@ -1,3 +1,5 @@
+import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import { ISlug } from '../../types/slug';
 import useWindowDimensions from 'hooks/useWindowDimensions';
@@ -6,8 +8,10 @@ const PartnersTable = dynamic(() => import('./PartnersTable'));
 const AdminsBlocks = dynamic(() => import('./AdminsBlocks'));
 const AdminsTable = dynamic(() => import('./AdminsTable'));
 
-function TableRender({ data }: ISlug) {
+function TableRender() {
   const { width } = useWindowDimensions();
+  const router = useRouter();
+  const { data }: ISlug = useQuery(['data', {id: router.query?.slug}]);
 
   return (
     <div>

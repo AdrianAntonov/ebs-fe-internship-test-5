@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+import { useQuery } from '@tanstack/react-query';
 import {
   LineChart,
   Line,
@@ -10,7 +12,9 @@ import {
 } from 'recharts';
 import { ICompanyTurnover } from '../../types/turnover';
 
-function CompanyTurnover({ data }: ICompanyTurnover) {
+function CompanyTurnover() {
+  const router = useRouter();
+  const { data }: ICompanyTurnover = useQuery(['data', {id: router.query?.slug}]);
   const sum = data?.general_data?.turnover.last?.toLocaleString();
 
   return (

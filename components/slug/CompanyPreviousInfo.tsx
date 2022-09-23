@@ -1,7 +1,13 @@
+import { useRouter } from 'next/router';
+import { useQuery } from '@tanstack/react-query';
 import { ICompanyPreviousInfo } from '../../types/companyPreviousData';
 import { NoData } from './NoData';
 
-function PreviousInfo({ data }: ICompanyPreviousInfo) {
+function PreviousInfo() {
+  const router = useRouter();
+
+  const { data }: ICompanyPreviousInfo = useQuery(['data', { id: router?.query?.slug }]);
+
   return (
     <div className="slugPreviousInfo sm:flex-nowrap md:text-2xl lg:text-base">
       <div className="slugPreviousInfoItem">

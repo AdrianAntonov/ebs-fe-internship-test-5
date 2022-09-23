@@ -1,6 +1,13 @@
+import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
 import { headerSlug } from '../../types/header';
 
-function CompanyHeader({ data }: headerSlug) {
+function CompanyHeader() {
+
+  const router = useRouter();
+  const { data }: headerSlug = useQuery(['data', { id: router?.query.slug }]);
+
+
   return (
     <div className="mb-4 bg-[#fff] pt-[50px]">
       <div className="mx-auto flex w-full max-w-[75rem] text-2xl font-semibold">

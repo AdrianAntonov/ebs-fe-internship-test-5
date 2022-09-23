@@ -1,7 +1,8 @@
-import { QueryClient } from 'react-query';
+import { useRouter } from 'next/router';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import dynamic from 'next/dynamic';
 import companies from 'api/companies';
-import { getQueries } from 'utils/ssr';
+import { defaultOptions } from 'utils/ssr';
 import { ISlug } from 'types/slug';
 const SlugContainer = dynamic(() => import('components/slug/Container'));
 const CompanyHeader = dynamic(() => import('components/slug/CompanyHeader'));
@@ -29,23 +30,26 @@ const CompanyTurnover = dynamic(
 );
 const Loading = dynamic(() => import('components/Loading'));
 
-function CompanyId({ data }: ISlug) {
+function CompanyId() {
+  const router = useRouter();
+  const { data }: ISlug = useQuery(['data', { id: router?.query?.slug }]);
+
   if (!data) {
     return <Loading />;
   }
 
   return (
     <div className="bg-[#fafafa]">
-      <CompanyHeader data={data} />
+      <CompanyHeader />
       <SlugContainer>
-        <PreviousInfo data={data} />
-        <CompanyProfile data={data} />
-        <CompanyContacts data={data} />
-        <QuantityAdminsPartners data={data} />
-        <TableRender data={data} />
-        <CompanyTurnover data={data} />
-        <CompanyInvestCapital data={data} />
-        <SimilarCompanies data={data} />
+        <PreviousInfo />
+        <CompanyProfile />
+        <CompanyContacts />
+        <QuantityAdminsPartners />
+        <TableRender />
+        <CompanyTurnover />
+        <CompanyInvestCapital />
+        <SimilarCompanies />
       </SlugContainer>
     </div>
   );
@@ -53,20 +57,13 @@ function CompanyId({ data }: ISlug) {
 
 export default CompanyId;
 
-CompanyId.getInitialProps = async ({ query }): Promise<Record<string, any>> => {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-        refetchOnMount: true,
-      },
-    },
-  });
+export async function getServerSideProps({ query }) {
+  const queryClient = new QueryClient({ defaultOptions });
 
   await queryClient.prefetchQuery(
     ['data', { id: query.slug }],
+
     companies.search
   );
-
-  return getQueries(queryClient);
-};
+  return { props: { dehydratedState: dehydrate(queryClient) } };
+}
